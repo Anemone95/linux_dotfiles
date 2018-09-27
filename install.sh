@@ -5,5 +5,8 @@ ln -f $SCRIPT_PATH/.gitconfig $HOME/.gitconfig
 ln -f $SCRIPT_PATH/.git-prompt.sh $HOME/.git-prompt.sh
 ln -f $SCRIPT_PATH/.git-completion.sh $HOME/.git-completion.sh
 ln -f $SCRIPT_PATH/.profile $HOME/.profile
-mv $HOME/.ssh $HOME/.ssh.bk
-ln -f -s $SCRIPT_PATH/.ssh $HOME/.ssh
+if [ -e $HOME/.ssh ];then
+    echo "Backup ~/.ssh to ~/.ssh.bk"
+    mv $HOME/.ssh $HOME/.ssh.bk
+fi
+ln -s -f $SCRIPT_PATH/ssh ~/.ssh
