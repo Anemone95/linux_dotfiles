@@ -144,3 +144,5 @@ fi
 
 # PROMPT
 source $HOME/.bash-prompt.sh
+
+export PATH=$PATH:$HOME/GoLand-2018.2.2/bin
