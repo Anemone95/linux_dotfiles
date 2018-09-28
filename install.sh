@@ -11,3 +11,4 @@ if [ -e $HOME/.ssh ];then
     mv $HOME/.ssh $HOME/.ssh.bk
 fi
 ln -s -f $SCRIPT_PATH/ssh ~/.ssh
+chmod 600 ~/.ssh/*
