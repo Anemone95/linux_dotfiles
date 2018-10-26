@@ -126,7 +126,7 @@ if [ -d "$HOME/miniconda2" ] ; then
     . $HOME/miniconda2/etc/profile.d/conda.sh
 fi
 if [ -d "$HOME/anaconda2" ] ; then
-    . $HOME/miniconda2/etc/profile.d/conda.sh
+    . $HOME/anaconda2/etc/profile.d/conda.sh
 fi
 
 # Git
