@@ -6,6 +6,7 @@ ln -f $SCRIPT_PATH/.git-prompt.sh $HOME/.git-prompt.sh
 ln -f $SCRIPT_PATH/.git-completion.sh $HOME/.git-completion.sh
 ln -f $SCRIPT_PATH/.profile $HOME/.profile
 ln -f $SCRIPT_PATH/.netrc $HOME/.netrc
+mkdir -p $HOME/.local/bin
 if [ -e $HOME/.ssh ];then
     echo "Backup ~/.ssh to ~/.ssh.bk"
     mv $HOME/.ssh $HOME/.ssh.bk
