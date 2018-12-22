@@ -7,3 +7,5 @@
 	name = Anemone95
 [push]
 	default = matching
+[alias]
+	lol = log --oneline
