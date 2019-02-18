@@ -1,6 +1,5 @@
 [core]
-	safecrlf = true
-	autocrlf = input
+	autolf = true
 	filemode = true
 [user]
 	email = x565178035@126.com
