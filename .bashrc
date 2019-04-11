@@ -155,7 +155,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # add WSL display
 if $WSL; then
     export DISPLAY=localhost:0.0
-    export DOCKER_HOST=tcp://192.168.99.100:2376 DOCKER_TLS_VERIFY=1
+    export DOCKER_HOST=tcp://127.0.0.1:2376 DOCKER_TLS_VERIFY=1
 fi
 
 # PROMPT
