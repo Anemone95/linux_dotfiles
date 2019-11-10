@@ -3,9 +3,11 @@
 # for examples
 
 if grep -q Microsoft /proc/version; then
-    export WSL=true
+    export WSL=1
+elif grep -q microsoft /proc/version; then
+    export WSL=2
 else
-    export WSL=false
+    export WSL=0
 fi
 
 # If not running interactively, don't do anything
@@ -153,9 +155,13 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 #export PROMPT_COMMAND='__git_ps1 "[\$?][${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]] \$PYTHON_VIRTUALENV" "\n\\\$ "'
 
 # add WSL display
-if $WSL; then
+if [ $WSL -eq 1 ]; then
     export DISPLAY=localhost:0.0
     export DOCKER_HOST=tcp://127.0.0.1:2376 DOCKER_TLS_VERIFY=1
+elif [ $WSL -eq 2 ]; then
+    export WIN_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+    export DISPLAY=$WIN_HOST:0
+    # sed -i "s/socks5.*1080/socks5 ${WIN_HOST} 1080/g" /etc/proxychains.conf
 fi
 
 # PROMPT

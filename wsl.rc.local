@@ -1,0 +1,8 @@
+#! /bin/sh
+if grep -q microsoft /proc/version; then
+    export WIN_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+    sed -i "s/socks5.*1080/socks5 ${WIN_HOST} 1080/g" /etc/proxychains.conf
+    sed -i "s/.*win.local/${WIN_HOST} win.local/g" /etc/hosts
+fi
+. /etc/rc.local
+exit 0
