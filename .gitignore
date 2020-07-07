@@ -1,2 +1,6 @@
 known_hosts
 .ssh
+*.bk
+.DS_Store
+.config/karabiner/assets
+.config/karabiner/automatic_backups
