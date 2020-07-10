@@ -4,3 +4,5 @@ known_hosts
 .DS_Store
 .config/karabiner/assets
 .config/karabiner/automatic_backups
+ssh/id_rsa.ali
+ssh/id_rsa.ali.pub
