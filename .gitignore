@@ -1,4 +1,5 @@
 known_hosts
+.DS_Store
 .ssh
 *.bk
 .DS_Store
