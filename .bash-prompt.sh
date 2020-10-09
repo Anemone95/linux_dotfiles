@@ -111,14 +111,14 @@ function set_bash_prompt () {
   set_virtualenv
 
   # Set the BRANCH variable.
-  if is_git_repository ; then
-    set_git_branch
-  else
-    BRANCH=''
-  fi
+  # if is_git_repository ; then
+    # set_git_branch
+  # else
+    # BRANCH=''
+  # fi
 
   # Set the bash prompt variable.
-  PS1="${PYTHON_VIRTUALENV}${LIGHT_GREEN}\u@\h:${BLUE}\w${COLOR_NONE} ${BRANCH}
+  PS1="${PYTHON_VIRTUALENV}${LIGHT_GREEN}\u@\h:${BLUE}\w${COLOR_NONE}
 ${PROMPT_SYMBOL} "
 }
 

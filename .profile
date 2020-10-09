@@ -25,7 +25,3 @@ fi
 # if [ -d "$HOME/.local/bin" ] ; then
 #     PATH="$HOME/.local/bin:$PATH"
 # fi
-
-export PATH="/home/anemone/fortify/bin:$PATH"
-
-export PATH="$HOME/.poetry/bin:$PATH"

@@ -885,7 +885,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "v",
+                                    "key_code": "w",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_command",
@@ -897,7 +897,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "v",
+                                        "key_code": "w",
                                         "modifiers": [
                                             "right_control"
                                         ]
@@ -961,6 +961,30 @@
                                         "mandatory": [
                                             "control"
                                         ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Refresh",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f5",
+                                    "modifiers": {
                                         "optional": [
                                             "any"
                                         ]
