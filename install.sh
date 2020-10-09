@@ -10,9 +10,7 @@ else
     export OS="linux"
 fi
 echo $1
-if [[ $1 -eq "config" ]] ; then
-    echo "Only install config"
-else
+if [[ $1 -eq "zsh" ]] ; then
     echo "Install zsh"
     # 安装zsh
     if [[ $OS -eq "linux" ]]; then
@@ -27,6 +25,8 @@ else
     # 安装插件
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+else
+    echo "Only install config"
 fi
 
 # sh
