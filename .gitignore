@@ -1,8 +1,6 @@
 known_hosts
 .DS_Store
-.ssh
 *.bk
-.DS_Store
-.config/karabiner/assets
-.config/karabiner/automatic_backups
+mac_config/karabiner/assets
+mac_config/karabiner/automatic_backups
 ssh/*

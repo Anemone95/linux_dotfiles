@@ -1,4 +1,4 @@
-# ~/.profile: executed by the command interpreter for login shells.
+# ~/.profile: 该脚本只被 sh 使用
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
@@ -20,7 +20,7 @@ fi
 # if [ -d "$HOME/bin" ] ; then
 #     PATH="$HOME/bin:$PATH"
 # fi
-# 
+#
 # # set PATH so it includes user's private bin if it exists
 # if [ -d "$HOME/.local/bin" ] ; then
 #     PATH="$HOME/.local/bin:$PATH"

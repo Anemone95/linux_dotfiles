@@ -4,6 +4,7 @@
 	quotepath = false
 	autocrlf = input
 	editor = vim
+    excludesfile = ~/.gitignore_global
 [user]
 	email = x565178035@126.com
 	name = Anemone95
@@ -11,3 +12,4 @@
 	default = matching
 [alias]
 	lol = log --oneline
+

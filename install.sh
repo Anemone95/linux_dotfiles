@@ -1,12 +1,54 @@
+#!/bin/bash
 SCRIPT_PATH="$( cd "$( dirname "$0"  )" && pwd  )"
-ln -f -s $SCRIPT_PATH/.bashrc $HOME/.bashrc
+if [ "$(uname)" == "Darwin" ]; then
+    export OS="mac"
+elif grep -q Microsoft /proc/version; then
+    export OS="wsl1"
+elif grep -q microsoft /proc/version; then
+    export OS="wsl2"
+else
+    export OS="linux"
+fi
+echo $1
+if [[ $1 -eq "config" ]] ; then
+    echo "Only install config"
+else
+    echo "Install zsh"
+    # 安装zsh
+    if [[ $OS -eq "linux" ]]; then
+        apt install zsh powerline fonts-powerline git byobu
+        usermod -s /usr/bin/zsh $(whoami)
+    else
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        brew install zsh byobu
+    fi
+    # 安装oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    # 安装插件
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
+# sh
+ln -f -s $SCRIPT_PATH/profile $HOME/.profile
+# bash
+ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
+ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
 ln -f -s $SCRIPT_PATH/.bash-prompt.sh $HOME/.bash-prompt.sh
-ln -f -s $SCRIPT_PATH/.gitconfig $HOME/.gitconfig
-ln -f -s $SCRIPT_PATH/.git-prompt.sh $HOME/.git-prompt.sh
-ln -f -s $SCRIPT_PATH/.git-completion.sh $HOME/.git-completion.sh
-ln -f -s $SCRIPT_PATH/.profile $HOME/.profile
-ln -f -s $SCRIPT_PATH/.netrc $HOME/.netrc
-cp $SCRIPT_PATH/.bashrc.local $HOME/.bashrc.local
+# zsh
+ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
+
+ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
+ln -f -s $SCRIPT_PATH/gitconfig $HOME/.gitconfig
+ln -f -s $SCRIPT_PATH/gitignore_global $HOME/.gitignore_global
+ln -f -s $SCRIPT_PATH/netrc $HOME/.netrc
+
+cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
+
+if [[ $OS -eq "mac" ]]; then
+    ln -f -s $SCRIPT_PATH/mac_config $HOME/.config
+fi
+
 mkdir -p $HOME/.local/bin
 if [ -e $HOME/.ssh ];then
     echo "Backup ~/.ssh to ~/.ssh.bk"
