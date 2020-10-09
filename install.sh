@@ -16,11 +16,11 @@ else
     echo "Install zsh"
     # 安装zsh
     if [[ $OS -eq "linux" ]]; then
-        apt install zsh powerline fonts-powerline git byobu
+        apt install zsh powerline fonts-powerline git tmux
         usermod -s /usr/bin/zsh $(whoami)
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        brew install zsh byobu
+        brew install zsh tmux
     fi
     # 安装oh-my-zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -42,6 +42,9 @@ ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
 ln -f -s $SCRIPT_PATH/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_PATH/gitignore_global $HOME/.gitignore_global
 ln -f -s $SCRIPT_PATH/netrc $HOME/.netrc
+
+# tmux
+ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
 
 cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 

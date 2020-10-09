@@ -59,3 +59,14 @@ if [[ $OS -eq "mac" ]]; then
 fi
 
 source $HOME/.localconfig.sh
+
+# tmux
+alias sp="tmux splitw -v"
+alias vs="tmux splitw -h"
+
+if command -v tmux >/dev/null 2>&1; then
+    if [ -z "$TMUX" ]
+    then
+        tmux attach -t TMUX || tmux new -s TMUX
+    fi
+fi
