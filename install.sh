@@ -9,22 +9,19 @@ elif grep -q microsoft /proc/version; then
 else
     export OS="linux"
 fi
-echo $1
-if [[ $1 -eq "zsh" ]] ; then
+cd ~
+if [[ $1 = "zsh" ]] ; then
     echo "Install zsh"
     # 安装zsh
-    if [[ $OS -eq "linux" ]]; then
-        apt install zsh powerline fonts-powerline git tmux
+    if [ "$OS" = "linux" ]; then
+        apt install zsh git tmux
         usermod -s /usr/bin/zsh $(whoami)
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         brew install zsh tmux
     fi
-    # 安装oh-my-zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    # 安装插件
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    # 安装zinit
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 else
     echo "Only install config"
 fi
@@ -37,6 +34,7 @@ ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
 ln -f -s $SCRIPT_PATH/.bash-prompt.sh $HOME/.bash-prompt.sh
 # zsh
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
+ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
 
 ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
 ln -f -s $SCRIPT_PATH/gitconfig $HOME/.gitconfig

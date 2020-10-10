@@ -37,16 +37,16 @@ if [ -d "$HOME/anaconda3" ] ; then
 fi
 
 # add WSL display
-if [[ $OS -eq "wsl1" ]]; then
+if [[ $OS = "wsl1" ]]; then
     export DISPLAY=localhost:0.0
     export DOCKER_HOST=tcp://127.0.0.1:2376 DOCKER_TLS_VERIFY=1
-elif [[ $OS -eq "wsl2" ]]; then
+elif [[ $OS = "wsl2" ]]; then
     export WIN_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
     export DISPLAY=$WIN_HOST:0
     # sed -i "s/socks5.*1080/socks5 ${WIN_HOST} 1080/g" /etc/proxychains.conf
 fi
 
-if [[ $OS -eq "mac" ]]; then
+if [[ $OS = "mac" ]]; then
     export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
     export JAVA_11_HOME="$(/usr/libexec/java_home -v 11)"
 
