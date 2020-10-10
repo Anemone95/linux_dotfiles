@@ -1,15 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-if [ "$(uname)" == "Darwin" ]; then
-    export ISMAC=1
-elif grep -q Microsoft /proc/version; then
-    export WSL=1
-elif grep -q microsoft /proc/version; then
-    export WSL=2
-else
-    export WSL=0
-fi
 
 # If not running interactively, don't do anything
 case $- in
@@ -39,7 +30,7 @@ shopt -s checkwinsize
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias ls='ll --color=auto'
+    alias ll='ls -al --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 

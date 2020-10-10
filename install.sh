@@ -17,9 +17,9 @@ if [[ $1 = "zsh" ]] ; then
         apt install zsh git tmux
         usermod -s /usr/bin/zsh $(whoami)
     else
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         brew install zsh tmux
     fi
+    chsh -s /bin/zsh
     # 安装zinit
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 else
@@ -46,7 +46,7 @@ ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
 
 cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 
-if [[ $OS -eq "mac" ]]; then
+if [ $OS = "mac" ]; then
     ln -f -s $SCRIPT_PATH/mac_config $HOME/.config
 fi
 
