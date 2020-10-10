@@ -63,6 +63,7 @@ source $HOME/.localconfig.sh
 # tmux
 alias sp="tmux splitw -v"
 alias vs="tmux splitw -h"
+alias tt="tmux attach -t TMUX || tmux new -s TMUX"
 
 if command -v tmux >/dev/null 2>&1; then
     if [ -z "$TMUX" ]
