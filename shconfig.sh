@@ -68,6 +68,7 @@ alias tt="tmux attach -t TMUX || tmux new -s TMUX"
 if command -v tmux >/dev/null 2>&1; then
     if [ -z "$TMUX" ]
     then
-        tmux attach -t TMUX || tmux new -s TMUX
+        tmux
+        # tmux attach -t TMUX || tmux new -s TMUX
     fi
 fi
