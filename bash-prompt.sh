@@ -39,35 +39,43 @@ function is_git_repository {
 
 # Determine the branch/state information for this git repository.
 function set_git_branch {
-  # Capture the output of the "git status" command.
-  git_status="$(git status 2> /dev/null)"
 
-  # Set color based on clean/staged/dirty.
-  if [[ ${git_status} =~ "working directory clean" ]]; then
-    state="${GREEN}"
-  elif [[ ${git_status} =~ "working tree clean" ]]; then
-    state="${GREEN}"
-  elif [[ ${git_status} =~ "Changes to be committed" ]]; then
-    state="${YELLOW}"
+  gitsize=`du -s $(git rev-parse --show-toplevel)/.git|awk '{ print $1 }'`
+  maxsize=$((1024*50))
+  if [ "$gitsize" -ge "$maxsize" ]; then
+      state="${LIGHT_GRAY}"
+      remote=""
   else
-    state="${LIGHT_RED}"
+      # Capture the output of the "git status" command.
+      git_status="$(git status 2> /dev/null)"
+      # Set color based on clean/staged/dirty.
+      if [[ ${git_status} =~ "working directory clean" ]]; then
+        state="${GREEN}"
+      elif [[ ${git_status} =~ "working tree clean" ]]; then
+        state="${GREEN}"
+      elif [[ ${git_status} =~ "Changes to be committed" ]]; then
+        state="${YELLOW}"
+      else
+        state="${LIGHT_RED}"
+      fi
+
+      # Set arrow icon based on status against remote.
+      remote_pattern="Your branch is (.*) of"
+      if [[ ${git_status} =~ ${remote_pattern} ]]; then
+        if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+          remote="↑"
+        else
+          remote="↓"
+        fi
+      else
+        remote=""
+      fi
+      diverge_pattern="Your branch and (.*) have diverged"
+      if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+        remote="↕"
+      fi
   fi
 
-  # Set arrow icon based on status against remote.
-  remote_pattern="Your branch is (.*) of"
-  if [[ ${git_status} =~ ${remote_pattern} ]]; then
-    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-      remote="↑"
-    else
-      remote="↓"
-    fi
-  else
-    remote=""
-  fi
-  diverge_pattern="Your branch and (.*) have diverged"
-  if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-    remote="↕"
-  fi
 
   # Get the name of the branch.
   branch=$(__git_ps1 '(%s)')
@@ -111,14 +119,14 @@ function set_bash_prompt () {
   set_virtualenv
 
   # Set the BRANCH variable.
-  # if is_git_repository ; then
-    # set_git_branch
-  # else
-    # BRANCH=''
-  # fi
+  if is_git_repository ; then
+    set_git_branch
+  else
+    BRANCH=''
+  fi
 
   # Set the bash prompt variable.
-  PS1="${PYTHON_VIRTUALENV}${LIGHT_GREEN}\u@\h:${BLUE}\w${COLOR_NONE}
+  PS1="${PYTHON_VIRTUALENV}${LIGHT_GREEN}\u@\h:${BLUE}\w${COLOR_NONE} ${BRANCH}
 ${PROMPT_SYMBOL} "
 }
 
