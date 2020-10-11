@@ -3,8 +3,10 @@ if [[ $uname = "Darwin" ]]; then
     export OS="mac"
 elif grep -q Microsoft /proc/version; then
     export OS="wsl1"
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 elif grep -q microsoft /proc/version; then
     export OS="wsl2"
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 else
     export OS="linux"
 fi
