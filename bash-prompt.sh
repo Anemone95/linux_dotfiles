@@ -44,7 +44,7 @@ function set_git_branch {
   maxsize=$((1024*50))
   if [ "$gitsize" -ge "$maxsize" ]; then
       state="${LIGHT_GRAY}"
-      remote=""
+      remote="?"
   else
       # Capture the output of the "git status" command.
       git_status="$(git status 2> /dev/null)"
