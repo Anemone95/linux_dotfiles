@@ -1,10 +1,12 @@
 #!/bin/bash
-if [[ $uname -eq "Darwin" ]]; then
+if [[ $uname = "Darwin" ]]; then
     export OS="mac"
 elif grep -q Microsoft /proc/version; then
     export OS="wsl1"
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 elif grep -q microsoft /proc/version; then
     export OS="wsl2"
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 else
     export OS="linux"
 fi
@@ -12,6 +14,19 @@ fi
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+# alias
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias ll='ls -al --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 # ~/.local/bin;~/bin
 if [ -d "$HOME/bin" ] ; then

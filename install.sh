@@ -9,6 +9,7 @@ elif grep -q microsoft /proc/version; then
 else
     export OS="linux"
 fi
+mkdir -p $HOME/.local/bin
 cd ~
 if [[ $1 = "zsh" ]] ; then
     echo "Install zsh"
@@ -17,13 +18,14 @@ if [[ $1 = "zsh" ]] ; then
         apt install zsh git tmux
         usermod -s /usr/bin/zsh $(whoami)
     else
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         brew install zsh tmux
     fi
+    chsh -s /bin/zsh
     # 安装zinit
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 else
     echo "Only install config"
+    git clone https://github.com/rupa/z.git $HOME/.local/z
 fi
 
 # sh
@@ -31,7 +33,7 @@ ln -f -s $SCRIPT_PATH/profile $HOME/.profile
 # bash
 ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
 ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
-ln -f -s $SCRIPT_PATH/.bash-prompt.sh $HOME/.bash-prompt.sh
+ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
 # zsh
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
@@ -46,11 +48,10 @@ ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
 
 cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 
-if [[ $OS -eq "mac" ]]; then
+if [ $OS = "mac" ]; then
     ln -f -s $SCRIPT_PATH/mac_config $HOME/.config
 fi
 
-mkdir -p $HOME/.local/bin
 if [ -e $HOME/.ssh ];then
     echo "Backup ~/.ssh to ~/.ssh.bk"
     mv $HOME/.ssh $HOME/.ssh.bk
