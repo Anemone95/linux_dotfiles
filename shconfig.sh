@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ $uname -eq "Darwin" ]]; then
+if [[ $(uname) = "Darwin" ]]; then
     export OS="OSX"
 elif grep -q Microsoft /proc/version; then
     export OS="wsl1"
