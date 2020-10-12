@@ -1,6 +1,6 @@
 #!/bin/bash
-if [[ $uname = "Darwin" ]]; then
-    export OS="mac"
+if [[ $uname -eq "Darwin" ]]; then
+    export OS="OSX"
 elif grep -q Microsoft /proc/version; then
     export OS="wsl1"
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -61,7 +61,7 @@ elif [[ $OS = "wsl2" ]]; then
     # sed -i "s/socks5.*1080/socks5 ${WIN_HOST} 1080/g" /etc/proxychains.conf
 fi
 
-if [[ $OS = "mac" ]]; then
+if [[ $OS = "OSX" ]]; then
     export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
     export JAVA_11_HOME="$(/usr/libexec/java_home -v 11)"
 
@@ -85,7 +85,7 @@ if command -v tmux >/dev/null 2>&1; then
     if [ -z "$TMUX" ]; then
         should_start_tmux=1
     fi
-    if [[ "$(ps $PPID|awk '{print $5}')" =~ "(dolphin|emacs|kate|vim|idea)" ]]; then
+    if [[ "$(ps $PPID|sed -n '2p'|awk '{print $NF}')" =~ "(emacs|vim|IntelliJ|webstorm|pycharm)" ]]; then
         should_start_tmux=0
     fi
 
