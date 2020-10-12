@@ -66,8 +66,15 @@ alias vs="tmux splitw -h"
 alias tt="tmux attach -t TMUX || tmux new -s TMUX"
 
 if command -v tmux >/dev/null 2>&1; then
-    if [ -z "$TMUX" ]
-    then
+    should_start_tmux=0
+    if [ -z "$TMUX" ]; then
+        should_start_tmux=1
+    fi
+    if [[ "$(ps $PPID|awk '{print $5}')" =~ "(dolphin|emacs|kate|vim|idea)" ]]; then
+        should_start_tmux=0
+    fi
+
+    if (( $should_start_tmux )); then
         tmux
         # tmux attach -t TMUX || tmux new -s TMUX
     fi
