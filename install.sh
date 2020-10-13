@@ -50,10 +50,3 @@ cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 if [ $OS = "mac" ]; then
     ln -f -s $SCRIPT_PATH/mac_config $HOME/.config
 fi
-
-if [ ! -e $HOME/.ssh ];then
-    cp $SCRIPT_PATH/ssh $HOME/.ssh
-    echo "Use 'ssh-keygen -t rsa -C \"anemone@xxxx\"' to generate a pair"
-    chmod 600 ~/.ssh/*
-fi
-
