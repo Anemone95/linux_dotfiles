@@ -41,7 +41,6 @@ ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
 ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
 ln -f -s $SCRIPT_PATH/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_PATH/gitignore_global $HOME/.gitignore_global
-ln -f -s $SCRIPT_PATH/netrc $HOME/.netrc
 
 # tmux
 ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
@@ -56,5 +55,5 @@ if [ -e $HOME/.ssh ];then
     echo "Backup ~/.ssh to ~/.ssh.bk"
     mv $HOME/.ssh $HOME/.ssh.bk
 fi
-ln -s -f $SCRIPT_PATH/ssh ~/.ssh
+cp $SCRIPT_PATH/ssh ~/.ssh
 chmod 600 ~/.ssh/*
