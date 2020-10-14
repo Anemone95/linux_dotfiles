@@ -92,8 +92,6 @@ if command -v tmux >/dev/null 2>&1; then
     then
         should_start_tmux=0
     fi
-
-    echo "$should_start_tmux"
     if (( $should_start_tmux )); then
         tmux
         # tmux attach -t TMUX || tmux new -s TMUX
