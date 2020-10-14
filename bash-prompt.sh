@@ -31,6 +31,7 @@ LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
  LIGHT_GRAY="\[\033[0;37m\]"
  COLOR_NONE="\[\e[0m\]"
+ source ~/.git-prompt.sh
 
 # Detect whether the current directory is a git repository.
 function is_git_repository {

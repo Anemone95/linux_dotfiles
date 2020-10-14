@@ -87,12 +87,13 @@ if command -v tmux >/dev/null 2>&1; then
     if [ -z "$TMUX" ]; then
         should_start_tmux=1
     fi
-    if [[ "$(ps $PPID|sed -n '2p'|awk '{print $NF}')" =~\
-        "(emacs|vim|idea|webstorm|pycharm)" ]]
+    if [[ "$(ps $PPID -o command|sed -n '2p')" =~\
+        "(emacs|Vim|vim|idea|webstorm|pycharm)" ]]
     then
         should_start_tmux=0
     fi
 
+    echo "$should_start_tmux"
     if (( $should_start_tmux )); then
         tmux
         # tmux attach -t TMUX || tmux new -s TMUX
