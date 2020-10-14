@@ -87,7 +87,7 @@ if command -v tmux >/dev/null 2>&1; then
     if [ -z "$TMUX" ]; then
         should_start_tmux=1
     fi
-    if [[ "$(ps $PPID -o command|sed -n '2p')" =~\
+    if [[ "$(ps -o command $PPID |sed -n '2p')" =~\
         "(emacs|idea|webstorm|pycharm)" ]]
     then
         should_start_tmux=0
