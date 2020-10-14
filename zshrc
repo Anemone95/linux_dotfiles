@@ -43,13 +43,20 @@ zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::lib/theme-and-appearance.zsh
 zinit light zsh-users/zsh-syntax-highlighting
 
-zinit ice lucid wait="0" atload="zpcompinit; zpcdreplay"
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
+## add completions
+zinit ice lucid wait="0"
+zinit light zsh-users/zsh-completions
+# last completion need atload
+zinit ice lucid wait="0" atload="zpcompinit; zpcdreplay"
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+## end
+
+
 # Other plugin
+zinit ice lucid wait="0"
 zinit load agkozak/zsh-z
 
 # common config
