@@ -92,6 +92,12 @@ if command -v tmux >/dev/null 2>&1; then
     then
         should_start_tmux=0
     fi
+
+    if [[ $OS = "wsl1" ]]; then
+        should_start_tmux=0
+    elif [[ $OS = "wsl2" ]]; then
+        should_start_tmux=0
+    fi
     if (( $should_start_tmux )); then
         tmux
         # tmux attach -t TMUX || tmux new -s TMUX
