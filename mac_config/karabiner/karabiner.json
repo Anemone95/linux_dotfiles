@@ -680,6 +680,14 @@
                         "description": "Refresh",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "f5",
                                     "modifiers": {
@@ -690,7 +698,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "tab",
+                                        "key_code": "r",
                                         "modifiers": [
                                             "command"
                                         ]
