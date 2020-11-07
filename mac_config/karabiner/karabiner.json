@@ -700,7 +700,7 @@
                                     {
                                         "key_code": "r",
                                         "modifiers": [
-                                            "command"
+                                            "left_command"
                                         ]
                                     }
                                 ],
