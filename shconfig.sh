@@ -103,3 +103,16 @@ if command -v tmux >/dev/null 2>&1; then
         # tmux attach -t TMUX || tmux new -s TMUX
     fi
 fi
+
+# fcitx on wsl
+if [[ $OS =~ "wsl" ]]; then
+    if [[ ! "$(ps -ef |grep fcitx)" =~\
+        "usr/bin/fcitx" ]]
+    then
+        export GTK_IM_MODULE=fcitx
+        export QT_IM_MODULE=fcitx
+        export XMODIFIERS=@im=fcitx
+        export DefaultIMModule=fcitx
+        fcitx-autostart>/var/log/fcitx/fcitx.log 2>&1
+    fi
+fi

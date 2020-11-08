@@ -1,0 +1,6 @@
+*.bin
+data/
+sync/
+log/
+dbus/
+*.userdb/
