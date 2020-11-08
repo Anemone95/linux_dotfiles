@@ -48,6 +48,4 @@ ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
 
 cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 
-if [ $OS = "mac" ]; then
-    ln -f -s $SCRIPT_PATH/mac_config $HOME/.config
-fi
+ln -f -s $SCRIPT_PATH/_config $HOME/.config
