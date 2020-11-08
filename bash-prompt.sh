@@ -48,7 +48,7 @@ function set_git_branch {
       remote="?"
   else
       # Capture the output of the "git status" command.
-      git_status="$(git status 2> /dev/null)"
+      git_status="$(LANG=en.US;git status 2> /dev/null)"
       # Set color based on clean/staged/dirty.
       if [[ ${git_status} =~ "working directory clean" ]]; then
         state="${GREEN}"
