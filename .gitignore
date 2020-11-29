@@ -3,4 +3,7 @@ known_hosts
 *.bk
 mac_config/karabiner/assets
 mac_config/karabiner/automatic_backups
+_config/htop
+_config/JetBrains
+_config/gedit
 ssh/*
