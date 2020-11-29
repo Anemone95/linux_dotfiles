@@ -14,18 +14,18 @@ cd ~
 if [[ $1 = "zsh" ]] ; then
     echo "Install zsh"
     # 安装zsh
-    if [ "$OS" = "linux" ]; then
+    if [ "$OS" = "mac" ]; then
+        brew install zsh tmux
+    else
         apt install zsh git tmux
         usermod -s /usr/bin/zsh $(whoami)
-    else
-        brew install zsh tmux
     fi
     chsh -s /bin/zsh
     # 安装zinit
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 else
     echo "Only install config"
-    git clone https://github.com/rupa/z.git $HOME/.local/z
+    cp $SCRIPT_PATH/z.sh $HOME/.local/z
 fi
 
 # sh
@@ -40,6 +40,7 @@ ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
 
 ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
+ln -f -s $SCRIPT_PATH/_display.sh $HOME/.display.sh
 ln -f -s $SCRIPT_PATH/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_PATH/gitignore_global $HOME/.gitignore_global
 
