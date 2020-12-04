@@ -29,6 +29,7 @@ if [ -x /usr/bin/dircolors ]; then
 else
     alias ll='ls -al'
 fi
+alias less="less -R"
 
 # ~/.local/bin;~/bin
 if [ -d "$HOME/bin" ] ; then
