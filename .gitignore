@@ -4,3 +4,4 @@ known_hosts
 mac_config/karabiner/assets
 mac_config/karabiner/automatic_backups
 ssh/*
+_config/fish
