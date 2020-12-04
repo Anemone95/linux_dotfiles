@@ -53,15 +53,9 @@ if [ -d "$HOME/anaconda3" ] ; then
     . $HOME/anaconda3/etc/profile.d/conda.sh
 fi
 
+
 # add WSL display
-if [[ $OS = "wsl1" ]]; then
-    export DISPLAY=localhost:0.0
-    export DOCKER_HOST=tcp://127.0.0.1:2376 DOCKER_TLS_VERIFY=1
-elif [[ $OS = "wsl2" ]]; then
-    export WIN_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-    export DISPLAY=$WIN_HOST:0
-    # sed -i "s/socks5.*1080/socks5 ${WIN_HOST} 1080/g" /etc/proxychains.conf
-fi
+source $HOME/.display.sh
 
 if [[ $OS = "OSX" ]]; then
     export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
@@ -84,35 +78,25 @@ alias tt="tmux attach -t TMUX || tmux new -s TMUX"
 
 if command -v tmux >/dev/null 2>&1; then
     should_start_tmux=0
-    if [ -z "$TMUX" ]; then
+    if [[ $OS = "wsl1" ]]; then
+        should_start_tmux=0
+    elif [[ $OS = "wsl2" ]]; then
         should_start_tmux=1
     fi
+    if [ -z "$TMUX" ]; then
+        if (( $should_start_tmux == 0 )); then
+            should_start_tmux=1
+        fi
+    fi
     if [[ "$(ps -o command $PPID |sed -n '2p')" =~\
-        "(emacs|idea|webstorm|pycharm)" ]]
+        "(emacs|idea|webstorm|pycharm|tmux)" ]]
     then
         should_start_tmux=0
     fi
 
-    if [[ $OS = "wsl1" ]]; then
-        should_start_tmux=0
-    elif [[ $OS = "wsl2" ]]; then
-        should_start_tmux=0
-    fi
     if (( $should_start_tmux )); then
         tmux
         # tmux attach -t TMUX || tmux new -s TMUX
     fi
 fi
 
-# fcitx on wsl
-if [[ $OS =~ "wsl" ]]; then
-    if [[ ! "$(ps -ef |grep fcitx)" =~\
-        "usr/bin/fcitx" ]]
-    then
-        export GTK_IM_MODULE=fcitx
-        export QT_IM_MODULE=fcitx
-        export XMODIFIERS=@im=fcitx
-        export DefaultIMModule=fcitx
-        fcitx-autostart>/var/log/fcitx/fcitx.log 2>&1
-    fi
-fi
