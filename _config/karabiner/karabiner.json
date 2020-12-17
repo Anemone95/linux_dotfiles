@@ -592,7 +592,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.google\\.chrome"
+                                            "^com\\.google\\.Chrome"
                                         ],
                                         "type": "frontmost_application_if"
                                     }

@@ -7,6 +7,7 @@ _config/htop
 _config/JetBrains
 _config/gedit
 ssh/*
+_config/fish
 _config/configstore/
 _config/fcitx/clipboard
 _config/fcitx/rime/luna_pinyin.userdb.old/
