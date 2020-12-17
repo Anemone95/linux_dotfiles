@@ -9,3 +9,4 @@ _config/gedit
 ssh/*
 _config/configstore/
 _config/fcitx/clipboard
+_config/fcitx/rime/luna_pinyin.userdb.old/
