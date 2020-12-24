@@ -1,0 +1,104 @@
+" set expandtab on, the tab will be change to space automaticaly
+set tabstop=4 " set tabstop to 4 characters
+set expandtab
+
+" 搜索
+set showmatch " show matching paren
+set incsearch " do incremental searching
+set hlsearch " highlight search terms
+set ignorecase " set search/replace pattern to ignore case
+set smartcase " set smartcase mode on, If there is upper case character in the search patern, the 'ignorecase' option will be override.
+
+" 搜索忽略大小写
+set ic
+set clipboard=unnamed
+
+" 保留5行
+set scrolloff=5
+
+" 关闭系统警告声
+set noeb
+set vb
+
+" 增强剪切板
+map <leader>y "*y
+vmap <leader>y "*y
+map <leader>p "*p
+
+" surround
+set surround
+
+" w为选择到这个单词结尾
+noremap w e
+
+" 缩进
+vnoremap < <gv
+vnoremap > >gv
+
+" 全选
+nnoremap <c-a> ggVG<CR>
+
+" 书签
+noremap mm :action ToggleBookmark<CR>
+noremap mp :action GotoPreviousBookmark<CR>
+noremap mn :action GotoNextBookmark<CR>
+
+" 运行
+noremap <F9> :action Run<CR>
+inoremap <F9> :action Run<CR>
+
+" Tab
+noremap bn :action NextTab<CR>
+noremap bp :action PreviousTab<CR>
+
+" 搜索
+noremap \fp :action FindInPath<CR>
+noremap \fe :action FindEverywhere<CR>
+noremap \ff :action GotoFile<CR>
+noremap \fc :action GotoClass<CR>
+noremap \gg :action FindUsages<CR>
+noremap \fi :action GotoDeclaration<CR>
+
+" 代码折叠
+noremap <Space>e :action ExpandRegion<CR>
+noremap <Space>f :action CollapseRegion<CR>
+
+noremap zo :action ExpandRegion<CR>
+noremap zz :action CollapseRegion<CR>
+noremap za :action CollapseAllRegions<CR>
+" nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zO')<CR>
+
+" 格式化代码
+noremap = :action ReformatCode<CR>
+vmap = :<bs><bs><bs><bs><bs>action ReformatCode<CR>
+
+" 多行编辑
+" noremap <c-n> :action SelectNextOccurrence<CR> " 使用IDE的热键，Add Selection for Next Occurrence
+" vmap <c-n> :<bs><bs><bs><bs><bs>action SelectNextOccurrence<CR>
+noremap <c-x> :action FindNext<CR>
+vmap <c-x> :action FindNext<CR>
+
+" Generate
+noremap \ge j:action Generate<CR>
+inoremap \ge <Esc>j:action Generate<CR>
+
+"Ctrl+h/j/k/l切换窗口
+noremap <Up> <c-w>k
+noremap <Down> <c-w>j
+noremap <Left> <c-w>h
+noremap <Right> <c-w>l
+
+"auto correct
+noremap \cr :action ShowIntentionActions<CR>
+inoremap \cr <Esc>:action ShowIntentionActions<CR>
+
+" 注释
+nnoremap \ci :action CommentByLineComment<cr>
+inoremap \ci <Esc>:action CommentByLineComment<cr>
+vnoremap \ci :action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
+
+" 函数跳转
+" nmap gd <c-]><esc>
+nmap gi :action GotoImplementation<CR>
+nmap go :action Back<CR>
+set clipboard+=ideaputset ideajoinset clipboard+=ideaput
