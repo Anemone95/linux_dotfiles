@@ -43,6 +43,8 @@ ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
 ln -f -s $SCRIPT_PATH/_display.sh $HOME/.display.sh
 ln -f -s $SCRIPT_PATH/gitconfig $HOME/.gitconfig
 ln -f -s $SCRIPT_PATH/gitignore_global $HOME/.gitignore_global
+# ideavimrc
+ln -f -s $SCRIPT_PATH/_ideavimrc $HOME/.ideavimrc
 
 # tmux
 ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf

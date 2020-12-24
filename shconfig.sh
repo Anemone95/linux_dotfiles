@@ -18,18 +18,28 @@ HISTFILESIZE=2000
 # alias
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias ll='ls -al --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+    alias ls='ls --color=always'
+    alias ll='ls -al --color=always'
+    alias dir='dir --color=always'
+    alias vdir='vdir --color=always'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias grep='grep --color=always'
+    alias fgrep='fgrep --color=always'
+    alias egrep='egrep --color=always'
+    alias ack="ack --color"
+elif [[ $OS = "OSX" ]]; then
+    alias ll='ls -al'
+    alias dir='dir --color=always'
+    alias vdir='vdir --color=always'
+
+    alias grep='grep --color=always'
+    alias fgrep='fgrep --color=always'
+    alias egrep='egrep --color=always'
+    alias ack="ack --color"
 else
     alias ll='ls -al'
 fi
-alias less="less -R"
+alias less="less -r"
 
 # ~/.local/bin;~/bin
 if [ -d "$HOME/bin" ] ; then
@@ -56,7 +66,9 @@ fi
 
 
 # add WSL display
-source $HOME/.display.sh
+if [[ $OS =~ "WSL" ]]; then
+    source $HOME/.display.sh
+fi
 
 if [[ $OS = "OSX" ]]; then
     export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
