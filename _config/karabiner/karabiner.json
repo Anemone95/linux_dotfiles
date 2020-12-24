@@ -221,18 +221,18 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "flico",
                                 "conditions": [
                                     {
-                                        "type": "device_if",
                                         "identifiers": [
                                             {
                                                 "product_id": 34050,
                                                 "vendor_id": 2652
                                             }
-                                        ]
+                                        ],
+                                        "type": "device_if"
                                     }
                                 ],
+                                "description": "flico",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": {
@@ -249,37 +249,59 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "flico",
                                 "conditions": [
                                     {
-                                        "type": "device_if",
                                         "identifiers": [
-                                            { "product_id": 34050, "vendor_id": 2652 }
-                                        ]
+                                            {
+                                                "product_id": 34050,
+                                                "vendor_id": 2652
+                                            }
+                                        ],
+                                        "type": "device_if"
                                     }
                                 ],
+                                "description": "flico",
                                 "from": {
                                     "key_code": "left_option",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [ { "key_code": "left_control" } ],
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
-                                "description": "except flico",
                                 "conditions": [
                                     {
-                                        "type": "device_unless",
                                         "identifiers": [
-                                            { "product_id": 34050, "vendor_id": 2652 }
-                                        ]
+                                            {
+                                                "product_id": 34050,
+                                                "vendor_id": 2652
+                                            }
+                                        ],
+                                        "type": "device_unless"
                                     }
                                 ],
+                                "description": "except flico",
                                 "from": {
                                     "key_code": "left_command",
-                                    "modifiers": { "optional": ["any"] }
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
-                                "to": [ { "key_code": "left_control" } ],
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -656,7 +678,8 @@
                         "vendor_id": 2652
                     },
                     "ignore": false,
-                    "manipulate_caps_lock_led": true
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
