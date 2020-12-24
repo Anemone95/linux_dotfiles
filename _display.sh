@@ -29,7 +29,6 @@ if [[ $OS =~ "wsl" ]]; then
     if [[ ! "$(ps -ef |grep fcitx)" =~\
         "usr/bin/fcitx" ]]
     then
-        echo "starting fcitx"
         fcitx-autostart>/var/log/fcitx/fcitx.log 2>&1
     fi
 fi
