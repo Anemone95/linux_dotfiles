@@ -6,6 +6,8 @@ _config/JetBrains
 _config/gedit
 ssh/*
 _config/fish
+_config/coc/
+_config/SweetScape/
 _config/configstore/
 _config/fcitx/clipboard
 _config/karabiner/automatic_backups
