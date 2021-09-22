@@ -9,7 +9,8 @@ _config/fish
 _config/coc/
 _config/SweetScape/
 _config/configstore/
-_config/fcitx/clipboard
+_config/dconf/
+_config/fcitx/clipboard/
 _config/fcitx/rime/luna_pinyin.userdb.old/
 _config/karabiner/automatic_backups
 _config/karabiner/assets
