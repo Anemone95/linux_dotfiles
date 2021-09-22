@@ -91,13 +91,22 @@ alias tt="tmux attach -t TMUX || tmux new -s TMUX"
 
 if command -v tmux >/dev/null 2>&1; then
     should_start_tmux=0
+    setted=0
     if [[ $OS = "wsl1" ]]; then
         should_start_tmux=0
+        setted=1
     elif [[ $OS = "wsl2" ]]; then
-        should_start_tmux=1
+        idea=`/mnt/c/Windows/System32/cmd.exe /C echo "%idea%"`
+        if [[ $idea =~ "true" ]]; then
+            should_start_tmux=0
+            setted=1
+        else
+            should_start_tmux=1
+            setted=1
+        fi
     fi
     if [ -z "$TMUX" ]; then
-        if (( $should_start_tmux == 0 )); then
+        if (( $setted == 0 )); then
             should_start_tmux=1
         fi
     fi
