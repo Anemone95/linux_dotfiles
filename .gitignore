@@ -11,6 +11,7 @@ _config/SweetScape/
 _config/configstore/
 _config/dconf/
 _config/fcitx/clipboard/
+_config/fcitx/clipboard/history.dat
 _config/fcitx/rime/luna_pinyin.userdb.old/
 _config/karabiner/automatic_backups
 _config/karabiner/assets
