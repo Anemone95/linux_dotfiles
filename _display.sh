@@ -17,18 +17,18 @@ if [[ $OS = "wsl1" ]]; then
 elif [[ $OS = "wsl2" ]]; then
     export WIN_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
     export DISPLAY=$WIN_HOST:0
-    sed -i "s/socks5.*1088/socks5 ${WIN_HOST} 1088/g" /etc/proxychains4.conf
+    sed -i "s/socks5.*1089/socks5 ${WIN_HOST} 1089/g" /etc/proxychains4.conf
 fi
 
 # fcitx on wsl
 if [[ $OS =~ "wsl" ]]; then
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
+    export DefaultIMModule=fcitx
     if [[ ! "$(ps -ef |grep fcitx)" =~\
         "usr/bin/fcitx" ]]
     then
-        export GTK_IM_MODULE=fcitx
-        export QT_IM_MODULE=fcitx
-        export XMODIFIERS=@im=fcitx
-        export DefaultIMModule=fcitx
         fcitx-autostart>/var/log/fcitx/fcitx.log 2>&1
     fi
 fi
