@@ -1,26 +1,24 @@
 [core]
-	autolf = true
-	filemode = true
-	quotepath = false
-	autocrlf = input
-	editor = vim
+    autolf = true
+    filemode = true
+    quotepath = false
+    autocrlf = input
+    editor = vim
     excludesfile = ~/.gitignore_global
 [user]
-	email = x565178035@126.com
-	name = Anemone95
+    email = x565178035@126.com
+    name = Anemone95
 [push]
-	default = matching
+    default = matching
 [alias]
-	lol = log --oneline
+    lol = log --pretty=format:\"%h %cn %cd %s\" --graph --date=format:\"%Y/%m/%d\"
 
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+[commit]
+    template = /Users/xuwenyuan/.stCommitMsg
+[include]
+    path = ~/.localgitconfig.cfg
