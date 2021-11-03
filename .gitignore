@@ -15,3 +15,5 @@ _config/fcitx/clipboard/history.dat
 _config/fcitx/rime/luna_pinyin.userdb.old/
 _config/karabiner/automatic_backups
 _config/karabiner/assets
+_config/fcitx/rime/user.yaml
+_config/fcitx/conf/fcitx-classic-ui.config
