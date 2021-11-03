@@ -19,17 +19,6 @@
                         "description": "Escape to Caps",
                         "manipulators": [
                             {
-<<<<<<< HEAD:_config/karabiner/karabiner.json
-=======
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.microsoft\\.rdc\\.macos"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
->>>>>>> 7b1b38933c8cb4c8cc593199eb2beed7ac17df16:mac_config/karabiner/karabiner.json
                                 "from": {
                                     "key_code": "escape",
                                     "modifiers": {
@@ -424,39 +413,6 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "CapsLock with the other keys",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "com\\.microsoft\\.rdc\\.macos"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "d",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "d",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
                                     }
                                 ],
                                 "type": "basic"
