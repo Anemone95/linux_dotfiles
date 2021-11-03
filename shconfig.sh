@@ -66,7 +66,7 @@ fi
 
 
 # add WSL display
-if [[ $OS =~ "WSL" ]]; then
+if [[ $OS =~ "wsl" ]]; then
     source $HOME/.display.sh
 fi
 
@@ -92,7 +92,11 @@ alias tt="tmux attach -t TMUX || tmux new -s TMUX"
 if command -v tmux >/dev/null 2>&1; then
     should_start_tmux=0
     setted=0
-    if [[ $OS = "wsl1" ]]; then
+
+    if [ $TMUX ]; then
+        should_start_tmux=0
+        setted=1
+    elif [[ $OS = "wsl1" ]]; then
         should_start_tmux=0
         setted=1
     elif [[ $OS = "wsl2" ]]; then

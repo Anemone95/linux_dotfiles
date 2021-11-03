@@ -32,3 +32,4 @@ if [[ $OS =~ "wsl" ]]; then
         fcitx-autostart>/var/log/fcitx/fcitx.log 2>&1
     fi
 fi
+export PATH=/root/.local/node_v14/bin:$PATH
