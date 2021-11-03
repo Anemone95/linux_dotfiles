@@ -71,15 +71,17 @@ if [[ $OS =~ "wsl" ]]; then
 fi
 
 if [[ $OS = "OSX" ]]; then
-    export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
-    export JAVA_11_HOME="$(/usr/libexec/java_home -v 11)"
-
-    alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
-    alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
-
-    # 默认使用JDK8
-    export JAVA_HOME=$JAVA_8_HOME
-    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+    if command -v java_home >/dev/null 2>&1; then 
+        export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
+        export JAVA_11_HOME="$(/usr/libexec/java_home -v 11)"
+    
+        alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+        alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
+    
+        # 默认使用JDK8
+        export JAVA_HOME=$JAVA_8_HOME
+        export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+    fi
 fi
 
 source $HOME/.localconfig.sh
