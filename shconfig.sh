@@ -116,6 +116,16 @@ if command -v tmux >/dev/null 2>&1; then
         should_start_tmux=0
     fi
 
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        should_start_tmux=0
+    else
+      case $(ps -o comm= -p $PPID) in
+        sshd|*/sshd) should_start_tmux=0;;
+      esac
+    fi
+
+    if [[ $(who am i) =~ \([-a-zA-Z0-9\.]+\)$ ]] ; then should_start_tmux=0; fi
+
     if (( $should_start_tmux )); then
         tmux
         # tmux attach -t TMUX || tmux new -s TMUX
