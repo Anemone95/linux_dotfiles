@@ -22,7 +22,7 @@ if [[ $1 = "zsh" ]] ; then
     fi
     chsh -s /bin/zsh
     # 安装zinit
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
 else
     echo "Only install config"
     cp $SCRIPT_PATH/z.sh $HOME/.local/z
@@ -51,4 +51,5 @@ ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
 
 cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 
+rm -rf $HOME/.config
 ln -f -s $SCRIPT_PATH/_config $HOME/.config
