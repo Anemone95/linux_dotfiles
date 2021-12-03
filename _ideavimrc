@@ -101,4 +101,5 @@ vnoremap \ci :action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
 " nmap gd <c-]><esc>
 nmap gi :action GotoImplementation<CR>
 nmap go :action Back<CR>
-set clipboard+=ideaputset ideajoinset clipboard+=ideaput
+set clipboard+=ideaput
+set ideajoin
