@@ -924,7 +924,7 @@
                                     {
                                         "key_code": "tab",
                                         "modifiers": [
-                                            "command"
+                                            "option"
                                         ]
                                     }
                                 ],
