@@ -80,7 +80,8 @@ if [[ $OS = "OSX" ]]; then
 
         # 默认使用JDK8
         export JAVA_HOME=$JAVA_8_HOME
-        export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+        # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 fi
 
