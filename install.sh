@@ -37,6 +37,7 @@ ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
 ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
 # zsh
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
+ln -f -s $SCRIPT_PATH/zshrc $HOME/.zprofile
 ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
 
 ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh

@@ -19,3 +19,5 @@ _config/fcitx/rime/user.yaml
 _config/fcitx/conf/fcitx-classic-ui.config
 _config/jgit/
 _config/texstudio
+_config/grammarly-languageserver/
+_config/iterm2
