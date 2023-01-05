@@ -1,0 +1,88 @@
+{
+    "~1" = (insertText:, "┐");
+    "~2" = (insertText:, "∃");
+    "~3" = (insertText:, "∀");
+    "~4" = (insertText:, "∈");
+    "~5" = (insertText:, "∩");
+    "~%" = (insertText:, "⨅");
+    "~6" = (insertText:, "∧");
+    "~\\^" = (insertText:, "∨");
+    "~7" = (insertText:, "∅");
+    "~8" = (insertText:, "∘");
+    "~*" = (insertText:, "×");
+    "~9" = (insertText:, "⊆");
+    "~(" = (insertText:, "⊂");
+    "~0" = (insertText:, "⊇");
+    "~)" = (insertText:, "⊃");
+    "~-" = (insertText:, "↦");
+    "~_" = (insertText:, "⤳");
+    "~=" = (insertText:, "≠");
+    "~+" = (insertText:, "±");
+
+    "~\U05C" = (insertText:, "⊥");
+    "~|" = (insertText:, "⊤");
+    "~[" = (insertText:, "⟦");
+    "~]" = (insertText:, "⟧");
+    "~}" = (insertText:, "⇒");
+
+    "~;" = (insertText:, "⊑");
+    "~'" = (insertText:, "⊒");
+    "~:" = (insertText:, "⊏");
+    "~\"" = (insertText:, "⊐");
+
+
+    "~," = (insertText:, "≤");
+    "~<" = (insertText:, "≪");
+    "~." = (insertText:, "≥");
+    "~>" = (insertText:, "≫");
+    "~/" = (insertText:, "÷");
+
+    "~\UF700" = (insertText:, "↑");
+    "~\UF701" = (insertText:, "↓");
+    "~\UF702" = (insertText:, "←");
+    "~\UF703" = (insertText:, "→");
+
+
+    "~A" = (insertText:, "Λ");
+    "~a" = (insertText:, "α");
+    "~b" = (insertText:, "β");
+    "~c" = (insertText:, "χ");
+    "~D" = (insertText:, "Δ");
+    "~d" = (insertText:, "δ");
+    "^e" = (insertText:, "ε");
+    "~F" = (insertText:, "Φ");
+    "~f" = (insertText:, "ϕ");
+    "~G" = (insertText:, "Γ");
+    "~g" = (insertText:, "γ");
+    "~h" = (insertText:, "η");
+    "^I" = (insertText:, "Ι");
+    "^i" = (insertText:, "ι");
+    "~k" = (insertText:, "κ");
+    "~L" = (insertText:, "λ");
+    "^L" = (insertText:, "Λ");
+    "~m" = (insertText:, "μ");
+    "^n" = (insertText:, "ν");
+    "~o" = (insertText:, "ο");
+    "~P" = (insertText:, "Π");
+    "~p" = (insertText:, "π");
+    "~Q" = (insertText:, "Θ");
+    "~q" = (insertText:, "θ");
+    "~r" = (insertText:, "ρ");
+    "^s" = (insertText:, "Σ");
+    "~s" = (insertText:, "σ");
+    "~T" = (insertText:, "Τ");
+    "~t" = (insertText:, "τ");
+    "~U" = (insertText:, "∪");
+    "^u" = (insertText:, "⨆");
+    "~V" = (insertText:, "ϒ");
+    "~v" = (insertText:, "υ");
+    "~W" = (insertText:, "Ω");
+    "~w" = (insertText:, "ω");
+    "~X" = (insertText:, "Ξ");
+    "~x" = (insertText:, "ξ");
+    "~Y" = (insertText:, "Ψ");
+    "~y" = (insertText:, "ψ");
+    "~z" = (insertText:, "ζ");
+
+
+}

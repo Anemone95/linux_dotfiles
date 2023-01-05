@@ -6,8 +6,8 @@
     editor = vim
     excludesfile = ~/.gitignore_global
 [user]
-    email = x565178035@126.com
-	name = Anemone95
+	email = wenyuan.xu@cs.au.dk
+	name = WenyuanXu
 [push]
     default = matching
 [alias]

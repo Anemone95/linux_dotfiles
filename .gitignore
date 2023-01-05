@@ -21,3 +21,5 @@ _config/jgit/
 _config/texstudio
 _config/grammarly-languageserver/
 _config/iterm2
+_config/op/
+_config/wireshark
