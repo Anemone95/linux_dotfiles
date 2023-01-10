@@ -1,5 +1,5 @@
 {
-    "~1" = (insertText:, "┐");
+    "~1" = (insertText:, "¬");
     "~2" = (insertText:, "∃");
     "~3" = (insertText:, "∀");
     "~4" = (insertText:, "∈");
@@ -73,7 +73,7 @@
     "~T" = (insertText:, "Τ");
     "~t" = (insertText:, "τ");
     "~U" = (insertText:, "∪");
-    "^u" = (insertText:, "⨆");
+    "^U" = (insertText:, "⨆");
     "~V" = (insertText:, "ϒ");
     "~v" = (insertText:, "υ");
     "~W" = (insertText:, "Ω");
