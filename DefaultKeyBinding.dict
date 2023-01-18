@@ -1,3 +1,10 @@
+/*
+ * Reference:
+ *		http://www.hcs.harvard.edu/~jrus/site/cocoa-text.html
+ *		http://www.hcs.harvard.edu/~jrus/Site/KeyBindings/Emacs%20Opt%20Bindings.dict
+ *		http://www.deepsky.com/~misaka/MacOSX/DefaultKeyBinding.dict
+ * Replace with the default /System/Library/Frameworks/AppKit.framework/Resources/StandardKeyBinding.dict
+ */
 {
     "~1" = (insertText:, "¬");
     "~2" = (insertText:, "∃");
