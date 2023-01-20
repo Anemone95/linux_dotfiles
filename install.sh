@@ -16,6 +16,8 @@ if [[ $1 = "zsh" ]] ; then
     # 安装zsh
     if [ "$OS" = "mac" ]; then
         brew install zsh tmux
+        mkdir $HOME/Library/KeyBindings
+        ln -f -s $SCRIPT_PATH/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
     else
         apt install zsh git tmux
         usermod -s /usr/bin/zsh $(whoami)

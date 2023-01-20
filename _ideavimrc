@@ -1,4 +1,5 @@
 Plug 'preservim/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 " set expandtab on, the tab will be change to space automaticaly
 set tabstop=4 " set tabstop to 4 characters
 set expandtab
@@ -78,8 +79,8 @@ vmap = :action ReformatCode<CR>
 " 多行编辑
 " noremap <c-n> :action SelectNextOccurrence<CR> " 使用IDE的热键，Add Selection for Next Occurrence
 " vmap <c-n> :<bs><bs><bs><bs><bs>action SelectNextOccurrence<CR>
-noremap <c-x> :action FindNext<CR>
-vmap <c-x> :action FindNext<CR>
+" noremap <c-x> :action FindNext<CR>
+" vmap <c-x> :action FindNext<CR>
 
 " Generate
 noremap \ge j:action Generate<CR>
@@ -100,11 +101,17 @@ nnoremap \ci :action CommentByLineComment<cr>
 inoremap \ci <Esc>:action CommentByLineComment<cr>
 vnoremap \ci :action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
 
+
+" multi cursor
+" map mc <A-n>
+
+
 " 函数跳转
 " nmap gd <c-]><esc>
 nmap gi :action GotoImplementation<CR>
 nmap go :action Back<CR>
 set clipboard+=ideaput
 set ideajoin
-sethandler <F2> a:vim
+" sethandler <F2> a:vim
 nmap <F2> :NERDTreeToggle<CR>
+
