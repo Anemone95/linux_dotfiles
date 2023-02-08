@@ -1,0 +1,16 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "equation",
+    "shortcut": "",
+    "tag": [
+        "\\begin{equation}",
+        "%|",
+        "\\end{equation}"
+    ],
+    "trigger": "^$$\\s"
+}

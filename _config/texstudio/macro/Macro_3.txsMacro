@@ -1,0 +1,16 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "orderedList",
+    "shortcut": "",
+    "tag": [
+        "\\begin{enumerate}",
+        "    \\item %|",
+        "\\end{enumerate}"
+    ],
+    "trigger": "1\\.\\s"
+}

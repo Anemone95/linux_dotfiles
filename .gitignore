@@ -2,14 +2,19 @@ known_hosts
 .DS_Store
 *.bk
 ssh/*
-_config/
-!_config/fcitx/
+_config/*
+!_config/fcitx/*
 _config/fcitx/clipboard/
 _config/fcitx/clipboard/history.dat
 _config/fcitx/rime/luna_pinyin.userdb.old/
 _config/fcitx/rime/user.yaml
 _config/fcitx/conf/fcitx-classic-ui.config
+# karabiner config
+!_config/karabiner/
+_config/karabiner/*
 !_config/karabiner/karabiner.json
-!_config/texstudio/macro/
-!_config/texstudio/texstudio.ini
+# texstudio macro config
+!_config/texstudio/
+_config/texstudio/*
+!_config/texstudio/macro
 !_config/templates

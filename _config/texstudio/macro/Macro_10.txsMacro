@@ -1,0 +1,19 @@
+{
+    "abbrev": "\\fig",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "figure",
+    "shortcut": "",
+    "tag": [
+        "\\begin{figure}[htbp]",
+        "\t\\centering",
+        "\t\\includegraphics[width=0.5\\textwidth]{%<Filepath%>}",
+        "\t\\caption{%<Caption%>}",
+        "\t\\label{fig:%<Label%>}",
+        "\\end{figure}"
+    ],
+    "trigger": ""
+}

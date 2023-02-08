@@ -1,0 +1,17 @@
+{
+    "abbrev": "\\def",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "definition",
+    "shortcut": "",
+    "tag": [
+        "\\begin{definition}[%<Def%>]",
+        "\\label{def:%<label%>}",
+        "%<body%>",
+        "\\end{definition}"
+    ],
+    "trigger": ""
+}

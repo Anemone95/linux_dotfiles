@@ -1,0 +1,16 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "unOrderedList",
+    "shortcut": "",
+    "tag": [
+        "\\begin{itemize}",
+        "    \\item %|",
+        "\\end{itemize}"
+    ],
+    "trigger": "^*\\s"
+}

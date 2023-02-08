@@ -1,0 +1,26 @@
+{
+    "abbrev": "\\tab",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "table",
+    "shortcut": "",
+    "tag": [
+        "\\begin{table}[h]",
+        "\t\\centering",
+        "\t\\begin{tabular}{c  c  c}",
+        "\t\t\\toprule",
+        "\t\tA & B & C \\\\",
+        "\t\t\\midrule",
+        "\t\td &  e & f\t \\\\",
+        "\t\tg &  h & i\t \\\\",
+        "\t\t\\bottomrule",
+        "\t\\end{tabular}",
+        "\t\\caption{%<Caption%>}",
+        "\t\\label{tab:%<Label%>}",
+        "\\end{table}"
+    ],
+    "trigger": ""
+}

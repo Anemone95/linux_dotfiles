@@ -1,0 +1,21 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "code",
+    "shortcut": "",
+    "tag": [
+        "\\begin{figure}[htbp]",
+        "\t\\centering",
+        "\t\\begin{lstlisting}[language=%<Lang%>]",
+        "%<Body%>",
+        "\t\\end{lstlisting}",
+        "\t\\caption{%<Caption%>}",
+        "\t\\label{code:%<Label%>}",
+        "\\end{figure}"
+    ],
+    "trigger": "^```\\s"
+}

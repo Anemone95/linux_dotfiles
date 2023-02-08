@@ -1,0 +1,31 @@
+{
+    "abbrev": "\\subfig",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "subfigure",
+    "shortcut": "",
+    "tag": [
+        "\\begin{figure}[htbp]",
+        "\t\\centering",
+        "\t\\begin{subfigure}{0.4\\textwidth}",
+        "\t\t%<Fig1%>",
+        "\t\t\\centering",
+        "\t\t\\caption{%<Caption1%>}",
+        "\t\t\\label{fig:%<Label1%>}",
+        "\t\\end{subfigure}",
+        "\t\\begin{subfigure}{0.5\\textwidth}",
+        "\t\t\t%<Fig2%>",
+        "\t\t\\centering",
+        "\t\t\\caption{%<Caption2%>}",
+        "\t\t\\label{fig:%<Label2%>}",
+        "\t\\end{subfigure}",
+        "\t\\caption{%<Caption%>}",
+        "\t\\label{fig:%<Label%>}",
+        "\\end{figure}",
+        ""
+    ],
+    "trigger": "\\subfig"
+}

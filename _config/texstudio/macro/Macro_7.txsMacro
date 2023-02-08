@@ -1,0 +1,30 @@
+{
+    "abbrev": "\\algo",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "algo",
+    "shortcut": "",
+    "tag": [
+        "\\begin{algorithm}",
+        "\t\\SetKwProg{Fn}{Function}{ }{end}",
+        "\t\\SetKwInOut{Input}{Input}",
+        "\t\\SetKwInOut{Output}{Output}",
+        "\t\\Input{$%<Input%>$: %<Desc%> }",
+        "\t\\Output{$%<Output%>$: %<Desc%>}",
+        "\t\\BlankLine",
+        "\t$%<Body%>$\\\\",
+        "\t% \\ForAll{}{}",
+        "\t% \\If{}{}",
+        "\t\\Fn{ %<FuncName%> }{",
+        "\t\t%<FuncBody%>\\tcc*{%<Comment%>}",
+        "\t\t% \\Return{x}",
+        "\t}",
+        "\t\\caption{%<Caption%>}",
+        "\t\\label{algo:%<Label%>}",
+        "\\end{algorithm}"
+    ],
+    "trigger": "\\algo"
+}
