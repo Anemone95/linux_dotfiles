@@ -1,0 +1,15 @@
+{
+    "abbrev": "\\bib",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "bib",
+    "shortcut": "",
+    "tag": [
+        "\\bibliographystyle{plain}",
+        "\\bibliography{bibfile}"
+    ],
+    "trigger": ""
+}

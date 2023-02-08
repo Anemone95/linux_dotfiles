@@ -1,0 +1,17 @@
+{
+    "abbrev": "\\circle",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "circlednumber",
+    "shortcut": "",
+    "tag": [
+        "\\usepackage{tikz}",
+        "\\newcommand*\\circled[1]{\\tikz[baseline=(char.base)]{",
+        "            \\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}",
+        "\\circled{%|}"
+    ],
+    "trigger": ""
+}
