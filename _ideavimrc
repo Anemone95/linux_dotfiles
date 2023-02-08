@@ -103,7 +103,8 @@ vnoremap \ci :action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
 
 
 " multi cursor
-" map mc <A-n>
+vmap <C-n> <A-n>
+vmap <C-x> <A-x>
 
 
 " 函数跳转
@@ -114,4 +115,5 @@ set clipboard+=ideaput
 set ideajoin
 " sethandler <F2> a:vim
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F4> :NERDTreeFind<CR>
 
