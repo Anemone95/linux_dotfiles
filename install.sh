@@ -19,12 +19,12 @@ if [[ $1 = "zsh" ]] ; then
         mkdir $HOME/Library/KeyBindings
         ln -f -s $SCRIPT_PATH/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
     else
-        apt install zsh git tmux
+        sudo apt install zsh git tmux
         usermod -s /usr/bin/zsh $(whoami)
     fi
     chsh -s /bin/zsh
     # 安装zinit
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
+    bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 else
     echo "Only install config"
     cp $SCRIPT_PATH/z.sh $HOME/.local/z
