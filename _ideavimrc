@@ -22,6 +22,8 @@ set scrolloff=5
 set noeb
 set vb
 
+let mapleader ="\\"
+
 " 增强剪切板
 map <leader>y "*y
 vmap <leader>y "*y
@@ -48,15 +50,29 @@ noremap mn :action GotoNextBookmark<CR>
 " 运行
 noremap <F9> :action Run<CR>
 inoremap <F9> :action Run<CR>
+noremap <S-F9> :action RunClass<CR>
+inoremap <S-F9> :action RunClass<CR>
+" 调试
+noremap <F10> :action Debug<CR>
+inoremap <F10> :action Debug<CR>
+
+noremap <F8> :action StepOver<CR>
+noremap <F7> :action StepInto<CR>
+noremap <S-F7> :action StepOut<CR>
+noremap <F6> :action Resume<CR>
+
+" Set breakpoint
+noremap <leader>b :action ToggleLineBreakPoint<CR>
 
 " Tab
 noremap bn :action NextTab<CR>
 noremap bp :action PreviousTab<CR>
 
 " 搜索
-noremap \f :action SearchEverywhere<CR>
-noremap \g :action FindInPath<CR>
-noremap \s :action FileStructurePopup<CR>
+noremap <leader>fe :action SearchEverywhere<CR>
+noremap <leader>ff :action FindInPath<CR>
+noremap <leader>gr :action RecentChangedFiles<CR>
+noremap <leader>s :action FileStructurePopup<CR>
 " noremap \fp :action FindInPath<CR>
 " noremap \ff :action GotoFile<CR>
 " noremap \fc :action GotoClass<CR>
@@ -64,9 +80,6 @@ noremap \s :action FileStructurePopup<CR>
 " noremap \fi :action GotoDeclaration<CR>
 
 " 代码折叠
-noremap <Space>e :action ExpandRegion<CR>
-noremap <Space>f :action CollapseRegion<CR>
-
 noremap zo :action ExpandRegion<CR>
 noremap zz :action CollapseRegion<CR>
 noremap za :action CollapseAllRegions<CR>
@@ -76,11 +89,9 @@ noremap za :action CollapseAllRegions<CR>
 noremap = :action ReformatCode<CR>
 vmap = :action ReformatCode<CR>
 
-" 多行编辑
-" noremap <c-n> :action SelectNextOccurrence<CR> " 使用IDE的热键，Add Selection for Next Occurrence
-" vmap <c-n> :<bs><bs><bs><bs><bs>action SelectNextOccurrence<CR>
-" noremap <c-x> :action FindNext<CR>
-" vmap <c-x> :action FindNext<CR>
+" clear unused imports
+noremap <leader>w :action OptimizeImports<CR>:%s/\s\+$//g<CR>
+
 
 " Generate
 noremap \ge j:action Generate<CR>
@@ -102,18 +113,30 @@ inoremap \ci <Esc>:action CommentByLineComment<cr>
 vnoremap \ci :action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
 
 
-" multi cursor
+" 多行编辑
 vmap <C-n> <A-n>
 vmap <C-x> <A-x>
 
+" rename variables
+nnoremap <leader>rn :action RenameElement<CR>
 
 " 函数跳转
 " nmap gd <c-]><esc>
 nmap gi :action GotoImplementation<CR>
+nmap gr :action FindUsages<CR>
 nmap go :action Back<CR>
+nmap gp :action JumpToLastChange<CR>
+nmap gn :action JumpToNextChange<CR>
+nmap gq :action GotoNextError<CR>
+noremap gf :action RecentChangedFiles<CR>
+
 set clipboard+=ideaput
 set ideajoin
 " sethandler <F2> a:vim
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :action ActivateTerminalToolWindow<CR>
 nmap <F4> :NERDTreeFind<CR>
+nmap <F12> :action HideAllWindows<CR>
 
+" paste 后不替换
+vmap p "_dhp

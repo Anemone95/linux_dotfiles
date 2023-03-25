@@ -6,18 +6,34 @@
  * ~/Library/KeyBindings/DefaultKeyBinding.Dict
  */
 {
+    "~\UF700" = (insertText:, "↑");
+    "~\UF701" = (insertText:, "↓");
+
     "~1" = (insertText:, "¬");
+    "^1" = (insertText:, "😂");
     "~2" = (insertText:, "∃");
+    "^2" = (insertText:, "[Facepalm]");
     "~3" = (insertText:, "∀");
+    "^3" = (insertText:, "😭");
     "~4" = (insertText:, "∈");
+    "^4" = (insertText:, "🙏");
+    /* opt-$ */
+    "~\U0024" = (insertText:, "←");
     "~5" = (insertText:, "∩");
+    "^5" = (insertText:, "👍");
     "~%" = (insertText:, "⨅");
     "~6" = (insertText:, "∧");
+    "^6" = (insertText:, "🙄");
     "~\\^" = (insertText:, "∨");
     "~7" = (insertText:, "∅");
+    "^7" = (insertText:, "👀");
+    /* opt-& */
+    "~\U0026" = (insertText:, "→");
     "~8" = (insertText:, "∘");
+    "^8" = (insertText:, "😳");
     "~*" = (insertText:, "×");
     "~9" = (insertText:, "⊆");
+    "^9" = (insertText:, "🤣");
     "~(" = (insertText:, "⊂");
     "~0" = (insertText:, "⊇");
     "~)" = (insertText:, "⊃");
@@ -29,6 +45,7 @@
     "~\U05C" = (insertText:, "⊥");
     "~|" = (insertText:, "⊤");
     "~[" = (insertText:, "⟦");
+    "~{" = (insertText:, "≈");
     "~]" = (insertText:, "⟧");
     "~}" = (insertText:, "⇒");
 
@@ -44,10 +61,6 @@
     "~>" = (insertText:, "≫");
     "~/" = (insertText:, "÷");
 
-    "~\UF700" = (insertText:, "↑");
-    "~\UF701" = (insertText:, "↓");
-    "~\UF702" = (insertText:, "←");
-    "~\UF703" = (insertText:, "→");
 
 
     "~A" = (insertText:, "Λ");
@@ -68,7 +81,6 @@
     "~L" = (insertText:, "λ");
     "^L" = (insertText:, "Λ");
     "~m" = (insertText:, "μ");
-    "^n" = (insertText:, "ν");
     "~o" = (insertText:, "ο");
     "~P" = (insertText:, "Π");
     "~p" = (insertText:, "π");
@@ -83,6 +95,7 @@
     "^U" = (insertText:, "⨆");
     "~V" = (insertText:, "ϒ");
     "~v" = (insertText:, "υ");
+    "^v" = (insertText:, "ν");
     "~W" = (insertText:, "Ω");
     "~w" = (insertText:, "ω");
     "~X" = (insertText:, "Ξ");
@@ -90,6 +103,4 @@
     "~Y" = (insertText:, "Ψ");
     "~y" = (insertText:, "ψ");
     "~z" = (insertText:, "ζ");
-
-
 }

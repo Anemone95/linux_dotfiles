@@ -3,5 +3,6 @@
 ssh-keygen -t rsa -C "anemone@xxxx"
 # git clone me
 cd linux_dotfiles/
-bash install.sh
+bash install.sh # or
+bash install.sh zsh
 ```
