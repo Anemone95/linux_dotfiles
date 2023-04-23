@@ -40,62 +40,63 @@ vnoremap < <gv
 vnoremap > >gv
 
 " 全选
-nnoremap <c-a> ggVG<CR>
+nmap <c-a> ggVG<CR>
 
 " 书签
-noremap mm :action ToggleBookmark<CR>
-noremap mp :action GotoPreviousBookmark<CR>
-noremap mn :action GotoNextBookmark<CR>
+nmap mm <action>(ToggleBookmark)
+nmap mp <action>(GotoPreviousBookmark)
+nmap mn <action>(GotoNextBookmark)
 
 " 运行
-noremap <F9> :action Run<CR>
-inoremap <F9> :action Run<CR>
-noremap <S-F9> :action RunClass<CR>
-inoremap <S-F9> :action RunClass<CR>
+nmap <F9> <action>(Run)
+imap <F9> <action>(Run)
+nmap <S-F9> <action>(RunClass)
+imap <S-F9> <action>(RunClass)
 " 调试
-noremap <F10> :action Debug<CR>
-inoremap <F10> :action Debug<CR>
+nmap <F10> <action>(Debug)
+imap <F10> <action>(Debug)
 
-noremap <F8> :action StepOver<CR>
-noremap <F7> :action StepInto<CR>
-noremap <S-F7> :action StepOut<CR>
-noremap <F6> :action Resume<CR>
+nmap <F8> <action>(StepOver)
+nmap <F7> <action>(StepInto)
+nmap <S-F7> <action>(StepOut)
+nmap <F6> <action>(Resume)
 
 " Set breakpoint
-noremap <leader>b :action ToggleLineBreakPoint<CR>
+nmap <leader>b <action>(ToggleLineBreakPoint)
 
 " Tab
-noremap bn :action NextTab<CR>
-noremap bp :action PreviousTab<CR>
+nmap bn <action>(NextTab)
+nmap bp <action>(PreviousTab)
 
 " 搜索
-noremap <leader>fe :action SearchEverywhere<CR>
-noremap <leader>ff :action FindInPath<CR>
-noremap <leader>gr :action RecentChangedFiles<CR>
-noremap <leader>s :action FileStructurePopup<CR>
-" noremap \fp :action FindInPath<CR>
-" noremap \ff :action GotoFile<CR>
-" noremap \fc :action GotoClass<CR>
-" noremap \gg :action FindUsages<CR>
-" noremap \fi :action GotoDeclaration<CR>
+nmap <leader>ff <action>(SearchEverywhere)
+nmap <leader>fe <action>(FindInPath)
+nmap <leader>fr <action>(RecentChangedFiles)
+nmap <leader>gr <action>(RecentChangedFiles)
+nmap <leader>s <action>(FileStructurePopup)
+" noremap \fp <action>(FindInPath)
+" noremap \ff <action>(GotoFile)
+" noremap \fc <action>(GotoClass)
+" noremap \gg <action>(FindUsages)
+" noremap \fi <action>(GotoDeclaration)
 
 " 代码折叠
-noremap zo :action ExpandRegion<CR>
-noremap zz :action CollapseRegion<CR>
-noremap za :action CollapseAllRegions<CR>
-" nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zO')<CR>
+nmap zo <action>(ExpandRegion)
+nmap zz <action>(CollapseRegion)
+nmap za <action>(CollapseAllRegions)
+nmap <space> <action>(CollapseRegion)
 
 " 格式化代码
-noremap = :action ReformatCode<CR>
-vmap = :action ReformatCode<CR>
+nmap = <action>(ReformatCode)
+vmap = <action>(ReformatCode)
 
 " clear unused imports
-noremap <leader>w :action OptimizeImports<CR>:%s/\s\+$//g<CR>
+nmap <leader>w <action>(OptimizeImports):%s/\s\+$//g<CR>
 
 
 " Generate
-noremap \ge j:action Generate<CR>
-inoremap \ge <Esc>j:action Generate<CR>
+nmap \ge j<action>(Generate)
+imap \ge <Esc>j<action>(Generate)
 
 "Ctrl+h/j/k/l切换窗口
 noremap <Up> <c-w>k
@@ -104,13 +105,13 @@ noremap <Left> <c-w>h
 noremap <Right> <c-w>l
 
 "auto correct
-noremap \cr :action ShowIntentionActions<CR>
-inoremap \cr <Esc>:action ShowIntentionActions<CR>
+map \cr <action>(ShowIntentionActions)
+imap \cr <action>(ShowIntentionActions)
 
 " 注释
-nnoremap \ci :action CommentByLineComment<cr>
-inoremap \ci <Esc>:action CommentByLineComment<cr>
-vnoremap \ci :action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
+nmap \ci <action>(CommentByLineComment)
+imap \ci <Esc><action>(CommentByLineComment)
+vmap \ci <action>(VimVisualSwapSelections)<action>(CommentByLineComment)<Esc>
 
 
 " 多行编辑
@@ -118,25 +119,118 @@ vmap <C-n> <A-n>
 vmap <C-x> <A-x>
 
 " rename variables
-nnoremap <leader>rn :action RenameElement<CR>
+nmap <leader>rn <action>(RenameElement)
 
 " 函数跳转
 " nmap gd <c-]><esc>
-nmap gi :action GotoImplementation<CR>
-nmap gr :action FindUsages<CR>
-nmap go :action Back<CR>
-nmap gp :action JumpToLastChange<CR>
-nmap gn :action JumpToNextChange<CR>
-nmap gq :action GotoNextError<CR>
-noremap gf :action RecentChangedFiles<CR>
+nmap gi <action>(GotoImplementation)
+nmap gr <action>(FindUsages)
+nmap go <action>(Back)
+nmap gp <action>(JumpToLastChange)
+nmap gn <action>(JumpToNextChange)
+nmap gq <action>(GotoNextError)
 
 set clipboard+=ideaput
 set ideajoin
 " sethandler <F2> a:vim
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :action ActivateTerminalToolWindow<CR>
+nmap <F3> <action>(ActivateTerminalToolWindow)
 nmap <F4> :NERDTreeFind<CR>
-nmap <F12> :action HideAllWindows<CR>
+nmap <F12> <action>(HideAllWindows)
 
 " paste 后不替换
 vmap p "_dhp
+
+" selection quotes
+nmap <Leader>v vi"
+
+" 选择模式扩大选择范围
+vmap v <Action>(EditorSelectWord)
+" 选择模式缩小选择范围
+vmap V <Action>(EditorUnSelectWord)
+
+" like key bindings
+set macmeta
+" Mathematical symbols mappings
+inoremap <expr> <M-1> "¬"
+inoremap <expr> <M-S-1> "±"
+inoremap <expr> <M-2> "∃"
+inoremap <expr> <M-S-2> "⇒"
+inoremap <expr> <M-3> "∀"
+inoremap <expr> <M-S-3> "↦"
+inoremap <expr> <M-4> "∪"
+inoremap <expr> <M-S-4> "∩"
+inoremap <expr> <M-5> "⊔"
+inoremap <expr> <M-S-5> "⨅"
+inoremap <expr> <M-6> "∨"
+inoremap <expr> <M-S-6> "∧"
+inoremap <expr> <M-7> "∅"
+inoremap <expr> <M-S-7> "→"
+inoremap <expr> <M-8> "∘"
+inoremap <expr> <M-S-8> "×"
+inoremap <expr> <M-9> "⊆"
+inoremap <expr> <M-S-9> "⊂"
+inoremap <expr> <M-0> "⊇"
+inoremap <expr> <M-S-0> "⊃"
+inoremap <expr> <M--> "∈"
+inoremap <expr> <M-S--> "⤳"
+inoremap <expr> <M-=> "≠"
+inoremap <expr> <M-S-=> "≈"
+
+inoremap <expr> <M-\> "⊥"
+inoremap <expr> <M-S-\> "⊤"
+inoremap <expr> <M-[> "⟦"
+inoremap <expr> <M-S-[> "⊑"
+inoremap <expr> <M-]> "⟧"
+inoremap <expr> <M-S-]> "⊒"
+
+inoremap <expr> <M-;> "⊏"
+inoremap <expr> <M-S-;> "⊐"
+
+
+inoremap <expr> <M-,> "≤"
+inoremap <expr> <M-S-,> "≪"
+inoremap <expr> <M-.> "≥"
+inoremap <expr> <M-S-.> "≫"
+inoremap <expr> <M-/> "÷"
+inoremap <expr> <M-S-/> "Σ"
+
+""Greek alphabet mappings
+inoremap <expr> <M-a> "α"
+inoremap <expr> <M-S-a> "Λ"
+inoremap <expr> <M-b> "β"
+inoremap <expr> <M-c> "χ"
+inoremap <expr> <M-d> "δ"
+inoremap <expr> <M-S-d> "Δ"
+inoremap <expr> <M-S-e> "ε"
+inoremap <expr> <M-f> "ϕ"
+inoremap <expr> <M-S-f> "Φ"
+inoremap <expr> <M-g> "γ"
+inoremap <expr> <M-S-g> "Γ"
+inoremap <expr> <M-h> "η"
+inoremap <expr> <C-i> "ι"
+inoremap <expr> <M-k> "κ"
+inoremap <expr> <M-S-l> "λ"
+inoremap <expr> <M-j> "Λ"
+inoremap <expr> <M-m> "μ"
+""niu
+inoremap <expr> <M-S-n> "ν"
+inoremap <expr> <M-o> "ο"
+inoremap <expr> <M-p> "π"
+inoremap <expr> <M-S-p> "Π"
+inoremap <expr> <M-q> "θ"
+inoremap <expr> <M-S-q> "Θ"
+inoremap <expr> <M-r> "ρ"
+inoremap <expr> <M-s> "σ"
+inoremap <expr> <M-t> "τ"
+""upsilon
+inoremap <expr> <M-S-u> "υ"
+inoremap <expr> <M-v> "ϒ"
+inoremap <expr> <M-S-v> "¥"
+inoremap <expr> <M-w> "ω"
+inoremap <expr> <M-S-w> "Ω"
+inoremap <expr> <M-x> "ξ"
+inoremap <expr> <M-S-x> "Ξ"
+inoremap <expr> <M-y> "ψ"
+inoremap <expr> <M-S-y> "Ψ"
+inoremap <expr> <M-z> "ζ"

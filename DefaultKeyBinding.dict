@@ -1,7 +1,6 @@
 /*
  * Reference:
  *		http://www.hcs.harvard.edu/~jrus/site/cocoa-text.html
- *		http://www.hcs.harvard.edu/~jrus/Site/KeyBindings/Emacs%20Opt%20Bindings.dict
  *		http://www.deepsky.com/~misaka/MacOSX/DefaultKeyBinding.dict
  * ~/Library/KeyBindings/DefaultKeyBinding.Dict
  */
@@ -10,21 +9,25 @@
     "~\UF701" = (insertText:, "↓");
 
     "~1" = (insertText:, "¬");
+    /* opt-! */
+    "~\U0021" = (insertText:, "±");
     "^1" = (insertText:, "😂");
     "~2" = (insertText:, "∃");
     "^2" = (insertText:, "[Facepalm]");
+    "~\\@" = (insertText:, "⇒");
     "~3" = (insertText:, "∀");
+    "~\\#" = (insertText:, "↦");
     "^3" = (insertText:, "😭");
-    "~4" = (insertText:, "∈");
-    "^4" = (insertText:, "🙏");
+    "~4" = (insertText:, "∪");
     /* opt-$ */
-    "~\U0024" = (insertText:, "←");
-    "~5" = (insertText:, "∩");
+    "~\U0024" = (insertText:, "∩");
+    "^4" = (insertText:, "🙏");
+    "~5" = (insertText:, "⊔");
     "^5" = (insertText:, "👍");
     "~%" = (insertText:, "⨅");
-    "~6" = (insertText:, "∧");
+    "~6" = (insertText:, "∨");
     "^6" = (insertText:, "🙄");
-    "~\\^" = (insertText:, "∨");
+    "~\\^" = (insertText:, "∧");
     "~7" = (insertText:, "∅");
     "^7" = (insertText:, "👀");
     /* opt-& */
@@ -37,22 +40,20 @@
     "~(" = (insertText:, "⊂");
     "~0" = (insertText:, "⊇");
     "~)" = (insertText:, "⊃");
-    "~-" = (insertText:, "↦");
+    "~-" = (insertText:, "∈");
     "~_" = (insertText:, "⤳");
     "~=" = (insertText:, "≠");
-    "~+" = (insertText:, "±");
+    "~+" = (insertText:, "≈");
 
     "~\U05C" = (insertText:, "⊥");
     "~|" = (insertText:, "⊤");
     "~[" = (insertText:, "⟦");
-    "~{" = (insertText:, "≈");
+    "~{" = (insertText:, "⊑");
     "~]" = (insertText:, "⟧");
-    "~}" = (insertText:, "⇒");
+    "~}" = (insertText:, "⊒");
 
-    "~;" = (insertText:, "⊑");
-    "~'" = (insertText:, "⊒");
-    "~:" = (insertText:, "⊏");
-    "~\"" = (insertText:, "⊐");
+    "~;" = (insertText:, "⊏");
+    "~:" = (insertText:, "⊐");
 
 
     "~," = (insertText:, "≤");
@@ -60,7 +61,7 @@
     "~." = (insertText:, "≥");
     "~>" = (insertText:, "≫");
     "~/" = (insertText:, "÷");
-
+    "~?" = (insertText:, "Σ");
 
 
     "~A" = (insertText:, "Λ");
@@ -69,7 +70,7 @@
     "~c" = (insertText:, "χ");
     "~D" = (insertText:, "Δ");
     "~d" = (insertText:, "δ");
-    "^e" = (insertText:, "ε");
+    "~E" = (insertText:, "ε");
     "~F" = (insertText:, "Φ");
     "~f" = (insertText:, "ϕ");
     "~G" = (insertText:, "Γ");
@@ -79,23 +80,22 @@
     "^i" = (insertText:, "ι");
     "~k" = (insertText:, "κ");
     "~L" = (insertText:, "λ");
-    "^L" = (insertText:, "Λ");
+    "~j" = (insertText:, "Λ");
     "~m" = (insertText:, "μ");
+    "~N" = (insertText:, "ν");
     "~o" = (insertText:, "ο");
     "~P" = (insertText:, "Π");
     "~p" = (insertText:, "π");
     "~Q" = (insertText:, "Θ");
     "~q" = (insertText:, "θ");
     "~r" = (insertText:, "ρ");
-    "^s" = (insertText:, "Σ");
     "~s" = (insertText:, "σ");
     "~T" = (insertText:, "Τ");
     "~t" = (insertText:, "τ");
-    "~U" = (insertText:, "∪");
-    "^U" = (insertText:, "⨆");
-    "~V" = (insertText:, "ϒ");
-    "~v" = (insertText:, "υ");
-    "^v" = (insertText:, "ν");
+    "~U" = (insertText:, "υ");
+    "~V" = (insertText:, "¥");
+    "~v" = (insertText:, "ϒ");
+    "^v" = (insertText:, "xxx");
     "~W" = (insertText:, "Ω");
     "~w" = (insertText:, "ω");
     "~X" = (insertText:, "Ξ");
