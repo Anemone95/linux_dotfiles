@@ -12,5 +12,5 @@
         "%|",
         "\\end{equation}"
     ],
-    "trigger": "^$$\\s"
+    "trigger": "^\\s*$$\\s"
 }

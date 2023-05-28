@@ -112,15 +112,20 @@ if command -v tmux >/dev/null 2>&1; then
             setted=1
         fi
     fi
+    if [[ "$(ps -o command $PPID |sed -n '2p')" =~\
+        "(emacs|tmux)" ]]
+    then
+        should_start_tmux=0
+        setted=1
+    fi
     if [ -z "$TMUX" ]; then
         if (( $setted == 0 )); then
             should_start_tmux=1
         fi
     fi
-    if [[ "$(ps -o command $PPID |sed -n '2p')" =~\
-        "(emacs|idea|webstorm|pycharm|tmux)" ]]
-    then
-        should_start_tmux=0
+
+    if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
+        tmux new-session \; set status off
     fi
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
@@ -135,7 +140,9 @@ if command -v tmux >/dev/null 2>&1; then
 
     if (( $should_start_tmux )); then
         tmux
-        # tmux attach -t TMUX || tmux new -s TMUX
     fi
 fi
 
+# ssh keep alive
+export ServerAliveInterval=120
+export ServerAliveCountMax=3

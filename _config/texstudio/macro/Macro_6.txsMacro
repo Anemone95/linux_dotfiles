@@ -10,12 +10,12 @@
     "tag": [
         "\\begin{figure}[htbp]",
         "\t\\centering",
-        "\t\\begin{lstlisting}[language=%<Lang%>]",
+        "\t\\begin{lstlisting}[language=%<Lang%>,gobble=8]",
         "%<Body%>",
         "\t\\end{lstlisting}",
         "\t\\caption{%<Caption%>}",
         "\t\\label{code:%<Label%>}",
         "\\end{figure}"
     ],
-    "trigger": "^```\\s"
+    "trigger": "^\\s*```\\s"
 }

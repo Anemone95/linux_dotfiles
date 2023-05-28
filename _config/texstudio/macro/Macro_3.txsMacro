@@ -12,5 +12,5 @@
         "    \\item %|",
         "\\end{enumerate}"
     ],
-    "trigger": "1\\.\\s"
+    "trigger": "^\\s*1\\.\\s"
 }

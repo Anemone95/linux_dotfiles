@@ -1,0 +1,34 @@
+{
+    "abbrev": "\\ppp",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "Paste as figure",
+    "shortcut": "",
+    "tag": [
+        "%SCRIPT",
+        "let filename = editor.fileName();",
+        "let workDir = filename.substring(0, filename.lastIndexOf(\"/\"));",
+        "let choisedialog = new UniversalInputDialog();",
+        "choisedialog.setWindowTitle(\"Paste Figure\");",
+        "choisedialog.add(\"\", \"Figure Name\", \"fname\");",
+        "choisedialog.add(\"\", \"Caption\", \"cname\");",
+        "if (choisedialog.exec() == null) { ; }",
+        "let figName = choisedialog.get(\"fname\");",
+        "let figDir = workDir + \"/images/\";",
+        "let proc1 = system(\"mkdir -p '\" + figDir + \"'\");",
+        "proc1.waitForFinished();",
+        "let figPath = figDir + figName + \".png\";",
+        "let proc2 = system(\"pngpaste '\" + figPath + \"'\\ 2>&&1\");",
+        "proc2.waitForFinished();",
+        "editor.write(`\\\\begin{figure}[htbp]",
+        "\t\\\\centering",
+        "\t\\\\includegraphics[width=0.7\\\\textwidth]{'./images/${figName}.png'}",
+        "\t\\\\caption{${choisedialog.get(\"cname\")}}",
+        "\t\\\\label{fig:${figName}}",
+        "\\\\end{figure}`);"
+    ],
+    "trigger": "ppp"
+}

@@ -12,5 +12,5 @@
         "    \\item %|",
         "\\end{itemize}"
     ],
-    "trigger": "^*\\s"
+    "trigger": "^\\s*\\*\\s"
 }

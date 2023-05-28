@@ -8,7 +8,7 @@
     "name": "inlineCode",
     "shortcut": "",
     "tag": [
-        "\\inlinecode{%x}{%|}"
+        " \\inlinecode{%<javascript%>}{%|}"
     ],
     "trigger": "\\s``\\s"
 }
