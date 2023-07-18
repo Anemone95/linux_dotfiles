@@ -1,0 +1,18 @@
+{
+    "abbrev": "",
+    "description": [
+        ""
+    ],
+    "formatVersion": 1,
+    "menu": "",
+    "name": "RQ1",
+    "shortcut": "",
+    "tag": [
+        "\\begin{enumerate}",
+        "\\renewcommand{\\labelenumi}{RQ\\arabic{enumi}}",
+        "\\item %|",
+        "\\end{enumerate}",
+        ""
+    ],
+    "trigger": "^\\s*RQ1\\s"
+}

@@ -25,7 +25,7 @@
         "proc2.waitForFinished();",
         "editor.write(`\\\\begin{figure}[htbp]",
         "\t\\\\centering",
-        "\t\\\\includegraphics[width=0.7\\\\textwidth]{'./images/${figName}.png'}",
+        "\t\\\\includegraphics[width=0.7\\\\textwidth]{./images/${figName}.png}",
         "\t\\\\caption{${choisedialog.get(\"cname\")}}",
         "\t\\\\label{fig:${figName}}",
         "\\\\end{figure}`);"

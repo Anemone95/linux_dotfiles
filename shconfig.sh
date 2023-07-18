@@ -118,15 +118,18 @@ if command -v tmux >/dev/null 2>&1; then
         should_start_tmux=0
         setted=1
     fi
+    if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
+        should_start_tmux=0
+        setted=1
+    fi
+
     if [ -z "$TMUX" ]; then
         if (( $setted == 0 )); then
+            export setted;
             should_start_tmux=1
         fi
     fi
 
-    if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
-        tmux new-session \; set status off
-    fi
 
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
         should_start_tmux=0

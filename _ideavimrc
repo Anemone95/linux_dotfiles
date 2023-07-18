@@ -3,6 +3,8 @@ Plug 'terryma/vim-multiple-cursors'
 " set expandtab on, the tab will be change to space automaticaly
 set tabstop=4 " set tabstop to 4 characters
 set expandtab
+set relativenumber
+set nu
 
 " 搜索
 set showmatch " show matching paren
@@ -16,7 +18,7 @@ set ic
 set clipboard=unnamed
 
 " 保留5行
-set scrolloff=5
+set scrolloff=10
 
 " 关闭系统警告声
 set noeb
@@ -148,6 +150,8 @@ nmap <Leader>v vi"
 vmap v <Action>(EditorSelectWord)
 " 选择模式缩小选择范围
 vmap V <Action>(EditorUnSelectWord)
+
+set ideavimsupport=
 
 " like key bindings
 set macmeta
