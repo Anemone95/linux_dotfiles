@@ -49,6 +49,9 @@
                                             "^com\\.googlecode\\.iterm2",
                                             "^com\\.jetbrains"
                                         ],
+                                        "file_paths": [
+                                            "/opt/homebrew/bin/neovide"
+                                        ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -88,6 +91,9 @@
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2",
                                             "^com\\.jetbrains"
+                                        ],
+                                        "file_paths": [
+                                            "/opt/homebrew/bin/neovide"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -807,6 +813,9 @@
                                             "^com\\.googlecode\\.iterm2",
                                             "^com\\.jetbrains"
                                         ],
+                                        "file_paths": [
+                                            "/opt/homebrew/bin/neovide"
+                                        ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -836,6 +845,9 @@
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2",
                                             "^com\\.jetbrains"
+                                        ],
+                                        "file_paths": [
+                                            "/opt/homebrew/bin/neovide"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -1098,7 +1110,7 @@
                     "treat_as_built_in_keyboard": false
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": true,
+                    "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
@@ -1491,21 +1503,21 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "left_option"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "left_command"
                             },
                             "to": [
                                 {
                                     "key_code": "left_option"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_option"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
                                 }
                             ]
                         }
