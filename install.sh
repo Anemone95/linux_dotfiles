@@ -26,17 +26,21 @@ if [[ $1 = "zsh" ]] ; then
     # 安装zinit
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 else
-    echo "Only install config"
-    cp $SCRIPT_PATH/z.sh $HOME/.local/z
+    echo "Install fish"
+    apt install fish git
+    echo /usr/local/bin/fish | sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/fish
+    git clone --depth=1 https://github.com/Anemone95/myvim.git
+    cd myvim && bash ./install.sh
 fi
 
 # sh
 ln -f -s $SCRIPT_PATH/profile $HOME/.profile
 # bash
-ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
-ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
-ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
-ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
+# ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
+# ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
+# ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
+# ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
 # zsh
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zprofile
