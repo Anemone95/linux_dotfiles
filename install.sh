@@ -27,9 +27,9 @@ if [[ $1 = "zsh" ]] ; then
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 else
     echo "Install fish"
-    apt install fish git
-    echo /usr/local/bin/fish | sudo tee -a /etc/shells
-    chsh -s /usr/local/bin/fish
+    sudo apt install fish git
+    echo /usr/bin/fish | sudo tee -a /etc/shells
+    chsh -s /usr/bin/fish
     git clone --depth=1 https://github.com/Anemone95/myvim.git
     cd myvim && bash ./install.sh
 fi
