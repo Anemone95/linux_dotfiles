@@ -9,7 +9,7 @@
 	email = wenyuan.xu@cs.au.dk
 	name = WenyuanXu
 [push]
-    default = matching
+	default = current
 [alias]
     lol = log --pretty=format:\"%h %cn %cd %s\" --graph --date=format:\"%Y/%m/%d\"
 
