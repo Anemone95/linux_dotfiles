@@ -30,8 +30,6 @@ else
     sudo apt install fish git
     echo /usr/bin/fish | sudo tee -a /etc/shells
     chsh -s /usr/bin/fish
-    git clone --depth=1 https://github.com/Anemone95/myvim.git
-    cd myvim && bash ./install.sh
 fi
 
 # sh
@@ -60,3 +58,6 @@ cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 
 rm -rf $HOME/.config
 ln -f -s $SCRIPT_PATH/_config $HOME/.config
+
+git clone --depth=1 https://github.com/Anemone95/myvim.git
+cd myvim && bash ./install.sh
