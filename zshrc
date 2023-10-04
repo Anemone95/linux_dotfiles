@@ -48,8 +48,10 @@ zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 # using local private key when using ssh
-zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zinit snippet OMZP::ssh-agent/ssh-agent.plugin.zsh
+if [[ -z "$SSH_CLIENT" && -z "$SSH_TTY" ]]; then
+    zstyle :omz:plugins:ssh-agent agent-forwarding yes
+    zinit snippet OMZP::ssh-agent/ssh-agent.plugin.zsh
+fi
 
 ## add completions
 zinit ice lucid wait="0"
