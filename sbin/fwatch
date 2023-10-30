@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# 检查参数数量
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 directory command"
+    exit 1
+fi
+
+folder_to_watch=$1
+command_to_execute=$2
+
+# 确保目录存在
+if [ ! -d "${folder_to_watch}" ]; then
+    echo "Directory ${folder_to_watch} does not exist."
+    exit 1
+fi
+
+# 使用 fswatch 监控目录
+fswatch -o "${folder_to_watch}" | while read f
+do
+    # 执行给定的命令
+    eval "${command_to_execute}"
+done

@@ -10,6 +10,16 @@ else
     export OS="linux"
 fi
 mkdir -p $HOME/.local/bin
+for file in "$SCRIPT_PATH/sbin"/*; do
+    # 检查是否是文件
+    if [[ -f "$file" ]]; then
+        # 获取文件名
+        filename=$(basename -- "$file")
+        # 创建到目录B的软链接
+        ln -sf $file ~/.local/bin/$filename
+    fi
+done
+
 cd ~
 if [[ $1 = "zsh" ]] ; then
     echo "Install zsh"

@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Usage: ./script.sh [from_path] [to_path]
+
+# Check if correct number of arguments is provided
+if [ "$#" -ne 2 ]; then
+    echo "Copy directory from/to remote server"
+    echo "Usage: $0 [from_path] [to_path]"
+    exit 1
+fi
+
+FROM_PATH=$1
+TO_PATH=$2
+
+# Function to extract user, server and path from input
+extract_path_info() {
+    USER_SERVER=$(echo $1 | cut -d: -f1)
+    FOLDER=$(echo $1 | cut -d: -f2)
+    echo "$USER_SERVER $FOLDER"
+}
+
+# Function to perform copy and extract operation
+perform_copy_extract() {
+    FROM_INFO=($(extract_path_info $1))
+    FROM_USER_SERVER=${FROM_INFO[0]}
+    FROM_FOLDER=${FROM_INFO[1]}
+    
+    TO_INFO=($(extract_path_info $2))
+    TO_USER_SERVER=${TO_INFO[0]}
+    TO_FOLDER=${TO_INFO[1]}
+    
+    TAR_NAME="$(basename "$FROM_FOLDER").tgz"
+    
+    # Check if from path is remote
+    if [[ $FROM_PATH == *":"* ]]; then
+        # SSH and tar the folder on the remote server
+        echo "ssh $FROM_USER_SERVER \"tar -czf \"$(dirname "$FROM_FOLDER")/$TAR_NAME\" -C \"$(dirname "$FROM_FOLDER")\" \"$(basename "$FROM_FOLDER")\"\"" 
+        ssh "$FROM_USER_SERVER" "tar -czf $(dirname "$FROM_FOLDER")/$TAR_NAME -C $(dirname "$FROM_FOLDER") $(basename "$FROM_FOLDER")"
+    else
+        echo "Creating tar of $FROM_FOLDER locally..."
+        tar -czf $(dirname "$FROM_FOLDER")/"$TAR_NAME" -C "$(dirname "$FROM_FOLDER")" "$(basename "$FROM_FOLDER")"
+    fi
+    
+    # Check if to path is remote
+    if [[ $TO_PATH == *":"* ]]; then
+        # SCP the tar file to the remote path
+        echo "Copying $TAR_NAME to $TO_USER_SERVER:$TO_FOLDER"
+        scp "$(dirname "$FROM_INFO")/$TAR_NAME" "$TO_USER_SERVER:$TO_FOLDER"
+        # SSH and untar the file on the remote server and then remove the tar file
+        # echo "ssh "$TO_USER_SERVER" "tar -xzf \"$TO_FOLDER/$TAR_NAME\" -C $TO_FOLDER && rm \"$TO_FOLDER/$TAR_NAME\""
+        ssh "$TO_USER_SERVER" "tar -xzf $TO_FOLDER/$TAR_NAME -C $TO_FOLDER && rm $TO_FOLDER/$TAR_NAME"
+    else
+        # Ensure the local path exists
+        mkdir -p "$TO_FOLDER"
+        # Move the tar file to the local path
+        echo "scp "$FROM_USER_SERVER:\"$(dirname "$FROM_FOLDER")/$TAR_NAME\"" "\"$TO_FOLDER\"
+        scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$TO_FOLDER"
+        # Navigate to local path, untar the file and remove the tar file
+        echo "tar -xzf "$TO_FOLDER/$TAR_NAME" -C $TO_FOLDER"
+        tar -xzf "$TO_FOLDER/$TAR_NAME" -C $TO_FOLDER
+        rm "$TO_FOLDER/$TAR_NAME"
+    fi
+    
+    # Remove the tar file from the from path
+    if [[ $FROM_PATH == *":"* ]]; then
+        echo "Removing $TAR_NAME from $FROM_USER_SERVER..."
+        ssh "$FROM_USER_SERVER" "rm $(dirname "$FROM_FOLDER")/$TAR_NAME"
+    else
+        echo "Removing $TAR_NAME from $TAR_NAME"
+        rm "$(dirname "$FROM_FOLDER")/$TAR_NAME"
+    fi
+}
+
+# Perform the copy and extract operation
+perform_copy_extract "$FROM_PATH" "$TO_PATH"
