@@ -30,7 +30,22 @@ if [[ $1 = "zsh" ]] ; then
         ln -f -s $SCRIPT_PATH/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
     else
         sudo apt install zsh git tmux
-        usermod -s /usr/bin/zsh $(whoami)
+        
+        current_user=$(whoami)
+
+        echo "Changing default to zsh"
+        usermod -s /usr/bin/zsh $current_user 2>/dev/null
+
+        if [[ $? -ne 0 ]]; then
+            echo "Failed, Attempting to run command with sudo..."
+            sudo usermod -s /usr/bin/zsh $current_user
+        fi
+
+        if [[ $? -eq 0 ]]; then
+            echo "Successfully changed the shell for $current_user to /usr/bin/zsh."
+        else
+            echo "Failed to change the shell. Please check your permissions or contact your system administrator."
+        fi
     fi
     chsh -s /bin/zsh
     # 安装zinit
