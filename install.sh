@@ -50,6 +50,7 @@ if [[ $1 = "zsh" ]] ; then
     chsh -s /bin/zsh
     # 安装zinit
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+    compaudit | xargs chmod g-w
 else
     echo "Install fish"
     sudo apt install fish git
