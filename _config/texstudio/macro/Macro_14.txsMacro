@@ -18,5 +18,5 @@
         "text = \"\\\\begin{tabular}{\" + colspec  + \"}\\n\" + text + \"\\\\end{tabular}\\n\"",
         "cursor.insertText(text)"
     ],
-    "trigger": ""
+    "trigger": "ttt"
 }

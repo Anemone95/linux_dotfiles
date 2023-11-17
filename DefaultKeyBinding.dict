@@ -95,7 +95,6 @@
     "~U" = (insertText:, "υ");
     "~V" = (insertText:, "¥");
     "~v" = (insertText:, "ϒ");
-    "^v" = (insertText:, "xxx");
     "~W" = (insertText:, "Ω");
     "~w" = (insertText:, "ω");
     "~X" = (insertText:, "Ξ");
