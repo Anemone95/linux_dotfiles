@@ -74,12 +74,15 @@ if [[ $OS = "OSX" ]]; then
     if command -v /usr/libexec/java_home >/dev/null 2>&1; then
         export JAVA_8_HOME="$(/usr/libexec/java_home -v 1.8)"
         export JAVA_11_HOME="$(/usr/libexec/java_home -v 11)"
+        export JAVA_21_HOME="$(/usr/libexec/java_home -v 21)"
+        export JAVA_13_HOME="$(/usr/libexec/java_home -v 21)"
 
         alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
         alias jdk11='export JAVA_HOME=$JAVA_11_HOME'
+        alias jdk21='export JAVA_HOME=$JAVA_21_HOME'
 
         # 默认使用JDK8
-        export JAVA_HOME=$JAVA_8_HOME
+        export JAVA_HOME=$JAVA_21_HOME
         # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
@@ -142,7 +145,7 @@ if command -v tmux >/dev/null 2>&1; then
     if [[ $(who am i) =~ \([-a-zA-Z0-9\.]+\)$ ]] ; then should_start_tmux=0; fi
 
     if (( $should_start_tmux )); then
-        tmux
+        tmux && exec tmuxfi
     fi
 fi
 

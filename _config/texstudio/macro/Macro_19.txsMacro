@@ -5,10 +5,10 @@
     ],
     "formatVersion": 1,
     "menu": "",
-    "name": "inlineCode",
+    "name": "paragraph",
     "shortcut": "",
     "tag": [
-        " \\code{%|}"
+        "\\paragraph{%|}"
     ],
-    "trigger": "\\s``\\s"
+    "trigger": "^####\\s"
 }

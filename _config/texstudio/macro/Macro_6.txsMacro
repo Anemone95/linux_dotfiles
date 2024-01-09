@@ -10,7 +10,7 @@
     "tag": [
         "\\begin{figure}[htbp]",
         "\t\\centering",
-        "\t\\begin{lstlisting}[language=%<Lang%>,gobble=8]",
+        "\t\\begin{lstlisting}[language=JavaScript,gobble=8]",
         "%<Body%>",
         "\t\\end{lstlisting}",
         "\t\\caption{%<Caption%>}",

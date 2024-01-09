@@ -24,8 +24,11 @@
     path = ~/.localgitconfig.cfg
 [merge]
 	renameLimit = 99999
-	tool = nvimdiff
+	tool = bc4
 [diff]
 	renameLimit = 99999
+	tool = bc4
 [mergetool "nvimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE
+[difftool]
+	prompt = false
