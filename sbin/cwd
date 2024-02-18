@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ABS_PATH=$(readlink -f "$1" 2>/dev/null || realpath "$1" 2>/dev/null || (cd "$1" 2>/dev/null && pwd))
+
+if [ -e "$ABS_PATH" ]; then
+    echo "$ABS_PATH"
+else
+    echo "The directory does not exist."
+fi
+

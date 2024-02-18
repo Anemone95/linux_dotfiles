@@ -50,14 +50,30 @@ perform_copy_extract() {
         # echo "ssh "$TO_USER_SERVER" "tar -xzf \"$TO_FOLDER/$TAR_NAME\" -C $TO_FOLDER && rm \"$TO_FOLDER/$TAR_NAME\""
         ssh "$TO_USER_SERVER" "tar -xzf $TO_FOLDER/$TAR_NAME -C $TO_FOLDER && rm $TO_FOLDER/$TAR_NAME"
     else
-        # Ensure the local path exists
-        mkdir -p "$TO_FOLDER"
-        # Move the tar file to the local path
-        echo "scp "$FROM_USER_SERVER:\"$(dirname "$FROM_FOLDER")/$TAR_NAME\"" "\"$TO_FOLDER\"
-        scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$TO_FOLDER"
-        # Navigate to local path, untar the file and remove the tar file
-        echo "tar -xzf "$TO_FOLDER/$TAR_NAME" -C $TO_FOLDER"
-        tar -xzf "$TO_FOLDER/$TAR_NAME" -C $TO_FOLDER
+        # Check if the TO_FOLDER exists
+        if [ -d "$TO_FOLDER" ]; then
+            echo "The folder $TO_FOLDER exists. Extracting the tar file directly into it."
+            # Move the tar file to the local path
+            scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$TO_FOLDER"
+            # Directly extract the tar file into the existing TO_FOLDER
+            tar -xzf "$TO_FOLDER/$TAR_NAME" -C "$TO_FOLDER"
+        else
+            echo "The folder $TO_FOLDER does not exist. Creating it and preparing to move contents."
+            # Create the TO_FOLDER
+            mkdir -p "$TO_FOLDER"
+            # Move the tar file to the local path
+            scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$TO_FOLDER"
+            # Extract the tar file to a temporary directory first
+            TEMP_DIR=$(mktemp -d)
+            tar -xzf "$TO_FOLDER/$TAR_NAME" -C "$TEMP_DIR"
+            # Move all contents from each top-level directory in the tar file to TO_FOLDER
+            for DIR in $(find "$TEMP_DIR" -mindepth 1 -maxdepth 1 -type d); do
+                # Move each directory's contents to TO_FOLDER
+                mv "$DIR"/* "$TO_FOLDER/"
+            done
+            # Remove the temporary directory
+            rm -rf "$TEMP_DIR"
+        fi
         rm "$TO_FOLDER/$TAR_NAME"
     fi
     
