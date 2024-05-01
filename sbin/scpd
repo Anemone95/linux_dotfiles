@@ -75,12 +75,9 @@ perform_copy_extract() {
             rm "$DEST/$TAR_NAME"
         else
             if [ -d "$TO_FOLDER" ]; then
-                echo "The folder $TO_FOLDER exist. Copy to $TO_FOLDER/$TAR_NAME"
-                DEST=$TO_FOLDER/$TAR_NAME
+                echo "$TO_FOLDER exists. Copy to $TO_FOLDER/$TAR_NAME"
             else
-                echo "The folder $TO_FOLDER does not exist. Creating it and preparing to move contents."
-                # Create the TO_FOLDER
-                mkdir -p "$TO_FOLDER"
+                echo "$TO_FOLDER does not exist. Creating it and preparing to move contents."
             fi
             # Move the tar file to the local path
             scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$DEST"
