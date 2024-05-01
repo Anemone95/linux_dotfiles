@@ -3,14 +3,20 @@
 # Usage: ./script.sh [from_path] [to_path]
 
 # Check if correct number of arguments is provided
-if [ "$#" -ne 2 ]; then
-    echo "Copy directory from/to remote server"
-    echo "Usage: $0 [from_path] [to_path]"
+if [ "$#" -eq 2 ]; then
+    FROM_PATH=$1
+    TO_PATH=$2
+    UNTAR=1
+elif [ "$#" -eq 3 ]; then 
+    FROM_PATH=$2
+    TO_PATH=$3
+    UNTAR=0
+else
+    echo "Copy directory from/to remote server (-t means only copy tar ball)"
+    echo "Usage: $0 [-t] [from_path] [to_path]"
     exit 1
 fi
 
-FROM_PATH=$1
-TO_PATH=$2
 
 # Function to extract user, server and path from input
 extract_path_info() {
@@ -34,15 +40,16 @@ perform_copy_extract() {
     # Check if from path is remote
     if [[ $FROM_PATH == *":"* ]]; then
         # SSH and tar the folder on the remote server
-        echo "ssh $FROM_USER_SERVER \"tar -czf \"$(dirname "$FROM_FOLDER")/$TAR_NAME\" -C \"$(dirname "$FROM_FOLDER")\" \"$(basename "$FROM_FOLDER")\"\"" 
-        ssh "$FROM_USER_SERVER" "tar -czf $(dirname "$FROM_FOLDER")/$TAR_NAME -C $(dirname "$FROM_FOLDER") $(basename "$FROM_FOLDER")"
+        echo "ssh $FROM_USER_SERVER \"tar -czf \"$(dirname "$FROM_FOLDER")/$TAR_NAME\" -C \"$FROM_FOLDER\" ." 
+        ssh "$FROM_USER_SERVER" "tar -czf $(dirname "$FROM_FOLDER")/$TAR_NAME -C "$FROM_FOLDER" ."
     else
         echo "Creating tar of $FROM_FOLDER locally..."
-        tar -czf $(dirname "$FROM_FOLDER")/"$TAR_NAME" -C "$(dirname "$FROM_FOLDER")" "$(basename "$FROM_FOLDER")"
+        tar -czf $(dirname "$FROM_FOLDER")/"$TAR_NAME" -C "$FROM_FOLDER" .
     fi
     
     # Check if to path is remote
     if [[ $TO_PATH == *":"* ]]; then
+        # FIXME to be tested
         # SCP the tar file to the remote path
         echo "Copying $TAR_NAME to $TO_USER_SERVER:$TO_FOLDER"
         scp "$(dirname "$FROM_INFO")/$TAR_NAME" "$TO_USER_SERVER:$TO_FOLDER"
@@ -51,30 +58,33 @@ perform_copy_extract() {
         ssh "$TO_USER_SERVER" "tar -xzf $TO_FOLDER/$TAR_NAME -C $TO_FOLDER && rm $TO_FOLDER/$TAR_NAME"
     else
         # Check if the TO_FOLDER exists
-        if [ -d "$TO_FOLDER" ]; then
-            echo "The folder $TO_FOLDER exists. Extracting the tar file directly into it."
+        DEST=$TO_FOLDER
+        if [ "$UNTAR" -eq 1 ]; then
+            if [ -d "$TO_FOLDER" ]; then
+                echo "The folder $TO_FOLDER exist. Copy to $TO_FOLDER/$(basename $FROM_FOLDER)"
+                DEST=$TO_FOLDER/$(basename $FROM_FOLDER)
+                mkdir -p "$DEST"
+            else
+                echo "The folder $TO_FOLDER does not exist. Creating it and preparing to move contents."
+                # Create the TO_FOLDER
+                mkdir -p "$TO_FOLDER"
+            fi
             # Move the tar file to the local path
-            scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$TO_FOLDER"
-            # Directly extract the tar file into the existing TO_FOLDER
-            tar -xzf "$TO_FOLDER/$TAR_NAME" -C "$TO_FOLDER"
+            scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$DEST"
+            tar -xzf "$DEST/$TAR_NAME" -C "$DEST"
+            rm "$DEST/$TAR_NAME"
         else
-            echo "The folder $TO_FOLDER does not exist. Creating it and preparing to move contents."
-            # Create the TO_FOLDER
-            mkdir -p "$TO_FOLDER"
+            if [ -d "$TO_FOLDER" ]; then
+                echo "The folder $TO_FOLDER exist. Copy to $TO_FOLDER/$TAR_NAME"
+                DEST=$TO_FOLDER/$TAR_NAME
+            else
+                echo "The folder $TO_FOLDER does not exist. Creating it and preparing to move contents."
+                # Create the TO_FOLDER
+                mkdir -p "$TO_FOLDER"
+            fi
             # Move the tar file to the local path
-            scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$TO_FOLDER"
-            # Extract the tar file to a temporary directory first
-            TEMP_DIR=$(mktemp -d)
-            tar -xzf "$TO_FOLDER/$TAR_NAME" -C "$TEMP_DIR"
-            # Move all contents from each top-level directory in the tar file to TO_FOLDER
-            for DIR in $(find "$TEMP_DIR" -mindepth 1 -maxdepth 1 -type d); do
-                # Move each directory's contents to TO_FOLDER
-                mv "$DIR"/* "$TO_FOLDER/"
-            done
-            # Remove the temporary directory
-            rm -rf "$TEMP_DIR"
+            scp "$FROM_USER_SERVER:$(dirname "$FROM_FOLDER")/$TAR_NAME" "$DEST"
         fi
-        rm "$TO_FOLDER/$TAR_NAME"
     fi
     
     # Remove the tar file from the from path
