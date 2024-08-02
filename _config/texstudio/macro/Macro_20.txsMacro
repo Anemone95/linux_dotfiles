@@ -3,12 +3,13 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "subparagraph",
     "shortcut": "",
     "tag": [
         "\\subparagraph{%|}"
     ],
-    "trigger": "^#####\\s"
+    "trigger": "^#####\\s",
+    "type": "Snippet"
 }

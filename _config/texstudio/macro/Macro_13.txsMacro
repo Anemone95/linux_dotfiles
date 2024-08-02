@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "table",
     "shortcut": "",
@@ -22,5 +22,6 @@
         "\t\\label{tab:%<Label%>}",
         "\\end{table}"
     ],
-    "trigger": ""
+    "trigger": "",
+    "type": "Snippet"
 }

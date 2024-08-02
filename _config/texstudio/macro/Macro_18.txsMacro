@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "RQ1",
     "shortcut": "",
@@ -14,5 +14,6 @@
         "\\end{enumerate}",
         ""
     ],
-    "trigger": "^\\s*RQ1\\s"
+    "trigger": "^\\s*RQ1\\s",
+    "type": "Snippet"
 }

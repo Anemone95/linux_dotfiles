@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "subfigure",
     "shortcut": "",
@@ -27,5 +27,6 @@
         "\\end{figure}",
         ""
     ],
-    "trigger": "\\subfig"
+    "trigger": "\\subfig",
+    "type": "Snippet"
 }

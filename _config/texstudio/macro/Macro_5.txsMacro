@@ -3,12 +3,13 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "inlineCode",
     "shortcut": "",
     "tag": [
         " \\code{%|}"
     ],
-    "trigger": "\\s``\\s"
+    "trigger": "\\s``\\s",
+    "type": "Snippet"
 }

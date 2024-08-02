@@ -3,12 +3,13 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "subsubsection",
     "shortcut": "",
     "tag": [
         "\\subsubsection{%|}"
     ],
-    "trigger": "^###\\s"
+    "trigger": "^###\\s",
+    "type": "Snippet"
 }

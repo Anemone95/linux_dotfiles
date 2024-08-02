@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "equation",
     "shortcut": "",
@@ -12,5 +12,6 @@
         "%|",
         "\\end{equation}"
     ],
-    "trigger": "^\\s*$$\\s"
+    "trigger": "^\\s*$$\\s",
+    "type": "Snippet"
 }

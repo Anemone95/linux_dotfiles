@@ -3,12 +3,11 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "Paste as figure",
     "shortcut": "",
     "tag": [
-        "%SCRIPT",
         "let filename = editor.fileName();",
         "let workDir = filename.substring(0, filename.lastIndexOf(\"/\"));",
         "let choisedialog = new UniversalInputDialog();",
@@ -30,5 +29,6 @@
         "\t\\\\label{fig:${figName}}",
         "\\\\end{figure}`);"
     ],
-    "trigger": "ppp"
+    "trigger": "ppp",
+    "type": "Script"
 }

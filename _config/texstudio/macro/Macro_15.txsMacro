@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "bib",
     "shortcut": "",
@@ -11,5 +11,6 @@
         "\\bibliographystyle{plain}",
         "\\bibliography{bibfile}"
     ],
-    "trigger": ""
+    "trigger": "",
+    "type": "Snippet"
 }

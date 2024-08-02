@@ -3,12 +3,13 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "paragraph",
     "shortcut": "",
     "tag": [
         "\\paragraph{%|}"
     ],
-    "trigger": "^####\\s"
+    "trigger": "^####\\s",
+    "type": "Snippet"
 }

@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "code",
     "shortcut": "",
@@ -17,5 +17,6 @@
         "\t\\label{code:%<Label%>}",
         "\\end{figure}"
     ],
-    "trigger": "^\\s*```\\s"
+    "trigger": "^\\s*```\\s",
+    "type": "Snippet"
 }

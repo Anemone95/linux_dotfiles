@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "algo",
     "shortcut": "",
@@ -26,5 +26,6 @@
         "\t\\label{algo:%<Label%>}",
         "\\end{algorithm}"
     ],
-    "trigger": "\\algo"
+    "trigger": "\\algo",
+    "type": "Snippet"
 }

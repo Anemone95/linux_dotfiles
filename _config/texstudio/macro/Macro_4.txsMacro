@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "unOrderedList",
     "shortcut": "",
@@ -12,5 +12,6 @@
         "    \\item %|",
         "\\end{itemize}"
     ],
-    "trigger": "^\\s*\\*\\s"
+    "trigger": "^\\s*\\*\\s",
+    "type": "Snippet"
 }

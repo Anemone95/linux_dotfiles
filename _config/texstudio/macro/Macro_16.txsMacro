@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "circlednumber",
     "shortcut": "",
@@ -13,5 +13,6 @@
         "            \\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}",
         "\\circled{%|}"
     ],
-    "trigger": ""
+    "trigger": "",
+    "type": "Snippet"
 }

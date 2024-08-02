@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "orderedList",
     "shortcut": "",
@@ -12,5 +12,6 @@
         "    \\item %|",
         "\\end{enumerate}"
     ],
-    "trigger": "^\\s*1\\.\\s"
+    "trigger": "^\\s*1\\.\\s",
+    "type": "Snippet"
 }

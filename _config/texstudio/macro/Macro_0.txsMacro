@@ -3,12 +3,13 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "section",
     "shortcut": "",
     "tag": [
         "\\section{%|}"
     ],
-    "trigger": "^#\\s"
+    "trigger": "^#\\s",
+    "type": "Snippet"
 }

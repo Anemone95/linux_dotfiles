@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "definition",
     "shortcut": "",
@@ -13,5 +13,6 @@
         "%<body%>",
         "\\end{definition}"
     ],
-    "trigger": ""
+    "trigger": "",
+    "type": "Snippet"
 }

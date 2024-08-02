@@ -3,7 +3,7 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "figure",
     "shortcut": "",
@@ -15,5 +15,6 @@
         "\t\\label{fig:%<Label%>}",
         "\\end{figure}"
     ],
-    "trigger": ""
+    "trigger": "",
+    "type": "Snippet"
 }

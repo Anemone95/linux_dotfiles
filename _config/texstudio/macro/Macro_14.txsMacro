@@ -3,12 +3,11 @@
     "description": [
         ""
     ],
-    "formatVersion": 1,
+    "formatVersion": 2,
     "menu": "",
     "name": "Paste as LaTeX table",
     "shortcut": "",
     "tag": [
-        "%SCRIPT",
         "text = app.clipboard",
         "numCols = text.split('\\n')[0].split('\\t').length",
         "colspec = Array(numCols+1).join(\"l\")",
@@ -18,5 +17,6 @@
         "text = \"\\\\begin{tabular}{\" + colspec  + \"}\\n\" + text + \"\\\\end{tabular}\\n\"",
         "cursor.insertText(text)"
     ],
-    "trigger": "ttt"
+    "trigger": "ttt",
+    "type": "Script"
 }
