@@ -18,3 +18,4 @@ _config/karabiner/*
 _config/texstudio/*
 !_config/texstudio/macro
 !_config/templates
+!_config/kitty/
