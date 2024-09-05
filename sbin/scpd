@@ -48,14 +48,28 @@ perform_copy_extract() {
     fi
     
     # Check if to path is remote
+    #TEMP_TGZ="/tmp/$(uuidgen).tgz"
+    TEMP_TGZ="/tmp/1.tgz"
     if [[ $TO_PATH == *":"* ]]; then
         # FIXME to be tested
         # SCP the tar file to the remote path
-        echo "Copying $TAR_NAME to $TO_USER_SERVER:$TO_FOLDER"
-        scp "$(dirname "$FROM_INFO")/$TAR_NAME" "$TO_USER_SERVER:$TO_FOLDER"
+        echo "Copying $TAR_NAME to $TO_USER_SERVER:$TEMP_DIR"
+        scp "$(dirname "$FROM_INFO")/$TAR_NAME" "$TO_USER_SERVER:$TEMP_TGZ"
         # SSH and untar the file on the remote server and then remove the tar file
         # echo "ssh "$TO_USER_SERVER" "tar -xzf \"$TO_FOLDER/$TAR_NAME\" -C $TO_FOLDER && rm \"$TO_FOLDER/$TAR_NAME\""
-        ssh "$TO_USER_SERVER" "tar -xzf $TO_FOLDER/$TAR_NAME -C $TO_FOLDER && rm $TO_FOLDER/$TAR_NAME"
+        # ssh "$TO_USER_SERVER" "tar -xzf $TO_FOLDER/$TAR_NAME -C $TO_FOLDER"
+        #ssh "$TO_USER_SERVER" "tar -xzf $TO_FOLDER/$TAR_NAME -C $TO_FOLDER && rm $TO_FOLDER/$TAR_NAME"
+        ssh "$TO_USER_SERVER" '
+        if [ ! -d '"$TO_FOLDER"' ]; then
+            echo "'"$TO_FOLDER"' not exists, creating..."
+            TARGET_DIR='"$TO_FOLDER"';
+        else
+            TARGET_DIR='"$TO_FOLDER/$(basename $FROM_FOLDER)"';
+        fi;
+        echo "mkdir $TARGET_DIR";
+        mkdir "$TARGET_DIR";
+        echo "untar to $TARGET_DIR";
+        tar -xzf '"$TEMP_TGZ"' -C "$TARGET_DIR"'
     else
         # Check if the TO_FOLDER exists
         DEST=$TO_FOLDER
@@ -87,7 +101,7 @@ perform_copy_extract() {
     # Remove the tar file from the from path
     if [[ $FROM_PATH == *":"* ]]; then
         echo "Removing $TAR_NAME from $FROM_USER_SERVER..."
-        ssh "$FROM_USER_SERVER" "rm $(dirname "$FROM_FOLDER")/$TAR_NAME"
+        ssh "$FROM_USER_SERVER" "rm $TEMP_TGZ"
     else
         echo "Removing $TAR_NAME from $TAR_NAME"
         rm "$(dirname "$FROM_FOLDER")/$TAR_NAME"
