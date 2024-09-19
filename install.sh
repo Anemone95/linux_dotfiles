@@ -29,7 +29,7 @@ if [[ $1 = "zsh" ]] ; then
         mkdir $HOME/Library/KeyBindings
         ln -f -s $SCRIPT_PATH/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
     else
-        sudo apt install zsh git tmux
+        sudo apt install -y zsh git tmux
         
         current_user=$(whoami)
 
@@ -59,6 +59,7 @@ elif [[ $1 = "bash" ]] ; then
     ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
     ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
     ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
+    ln -f -s $SCRIPT_PATH/z.sh $HOME/.local/.z
 else
     echo "Install fish"
     sudo apt install fish git
