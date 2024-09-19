@@ -142,6 +142,19 @@ if command -v tmux >/dev/null 2>&1; then
       esac
     fi
 
+    if [ -e /sys/fs/cgroup/memory.max ] || [ -e /sys/fs/cgroup/memory/memory.limit_in_bytes ]; then
+        should_start_tmux=0
+    fi
+
+    if [ -e /.dockerenv ]; then
+        should_start_tmux=0
+    fi
+
+    if grep -qa docker /proc/self/cgroup; then
+        should_start_tmux=0
+    fi
+
+
     if [[ $(who am i) =~ \([-a-zA-Z0-9\.]+\)$ ]] ; then should_start_tmux=0; fi
 
     if (( $should_start_tmux )); then
