@@ -52,7 +52,7 @@ if [[ $1 = "zsh" ]] ; then
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
     compaudit | xargs chmod g-w
 
-else if [[ $1 = "bash" ]] ; then
+elif [[ $1 = "bash" ]] ; then
     mv $HOME/.bashrc .bashrc.bk
     mv $HOME/.bash_profile .bash_profile.bk
     ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
