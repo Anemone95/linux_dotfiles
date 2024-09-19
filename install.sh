@@ -51,6 +51,14 @@ if [[ $1 = "zsh" ]] ; then
     # 安装zinit
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
     compaudit | xargs chmod g-w
+
+else if [[ $1 = "bash" ]] ; then
+    mv $HOME/.bashrc .bashrc.bk
+    mv $HOME/.bash_profile .bash_profile.bk
+    ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
+    ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
+    ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
+    ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
 else
     echo "Install fish"
     sudo apt install fish git
@@ -58,13 +66,9 @@ else
     chsh -s /usr/bin/fish
 fi
 
+mv $SCRIPT_PATH/profile $HOME/.profile
 # sh
 ln -f -s $SCRIPT_PATH/profile $HOME/.profile
-# bash
-# ln -f -s $SCRIPT_PATH/bashrc $HOME/.bashrc
-# ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
-# ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
-# ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
 # zsh
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
 ln -f -s $SCRIPT_PATH/zshrc $HOME/.zprofile
