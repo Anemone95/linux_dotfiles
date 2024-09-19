@@ -29,7 +29,7 @@ if [[ $1 = "zsh" ]] ; then
         mkdir $HOME/Library/KeyBindings
         ln -f -s $SCRIPT_PATH/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
     else
-        sudo apt install zsh git tmux
+        sudo apt install -y zsh git tmux
         
         current_user=$(whoami)
 
