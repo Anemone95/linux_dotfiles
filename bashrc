@@ -73,5 +73,5 @@ fi
 # PROMPT
 source $HOME/.bash-prompt.sh
 # z.sh
-source $HOME/.local/z
+source $HOME/.local/.z
 source $HOME/.shconfig.sh

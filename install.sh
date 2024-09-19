@@ -59,6 +59,7 @@ elif [[ $1 = "bash" ]] ; then
     ln -f -s $SCRIPT_PATH/bash_profile $HOME/.bash_profile
     ln -f -s $SCRIPT_PATH/bash-prompt.sh $HOME/.bash-prompt.sh
     ln -f -s $SCRIPT_PATH/git-prompt.sh $HOME/.git-prompt.sh
+    ln -f -s $SCRIPT_PATH/z.sh $HOME/.local/.z
 else
     echo "Install fish"
     sudo apt install fish git
