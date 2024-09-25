@@ -150,7 +150,7 @@ if command -v tmux >/dev/null 2>&1; then
         should_start_tmux=0
     fi
 
-    if grep -qa docker /proc/self/cgroup; then
+    if [ -e /proc/self/cgroup ] && grep -qa docker /proc/self/cgroup; then
         should_start_tmux=0
     fi
 
