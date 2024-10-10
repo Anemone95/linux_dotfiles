@@ -30,7 +30,8 @@
                                         "bundle_identifiers": [
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2",
-                                            "^com\\.jetbrains"
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode"
                                         ],
                                         "file_paths": ["/opt/homebrew/bin/neovide"],
                                         "type": "frontmost_application_if"
@@ -59,7 +60,8 @@
                                             "^com\\.microsoft\\.rdc\\.macos",
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2",
-                                            "^com\\.jetbrains"
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode"
                                         ],
                                         "file_paths": ["/opt/homebrew/bin/neovide"],
                                         "type": "frontmost_application_unless"
@@ -590,7 +592,8 @@
                                         "bundle_identifiers": [
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2",
-                                            "^com\\.jetbrains"
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode"
                                         ],
                                         "file_paths": ["/opt/homebrew/bin/neovide"],
                                         "type": "frontmost_application_if"
@@ -614,7 +617,8 @@
                                         "bundle_identifiers": [
                                             "^org\\.vim\\.",
                                             "^com\\.googlecode\\.iterm2",
-                                            "^com\\.jetbrains"
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode"
                                         ],
                                         "file_paths": ["/opt/homebrew/bin/neovide"],
                                         "type": "frontmost_application_if"
