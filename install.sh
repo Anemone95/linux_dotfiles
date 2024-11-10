@@ -51,6 +51,9 @@ if [[ $1 = "zsh" ]] ; then
     # 安装zinit
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
     compaudit | xargs chmod g-w
+    ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
+    ln -f -s $SCRIPT_PATH/zshrc $HOME/.zprofile
+    ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
 
 elif [[ $1 = "bash" ]] ; then
     mv $HOME/.bashrc .bashrc.bk
@@ -65,15 +68,15 @@ else
     sudo apt install fish git
     echo /usr/bin/fish | sudo tee -a /etc/shells
     chsh -s /usr/bin/fish
+    fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+    fish -c "fisher install jethrokuan/z"
+    fish -c "fisher install pure-fish/pure"
+
 fi
 
 mv $SCRIPT_PATH/profile $HOME/.profile
 # sh
 ln -f -s $SCRIPT_PATH/profile $HOME/.profile
-# zsh
-ln -f -s $SCRIPT_PATH/zshrc $HOME/.zshrc
-ln -f -s $SCRIPT_PATH/zshrc $HOME/.zprofile
-ln -f -s $SCRIPT_PATH/p10k.zsh $HOME/.p10k.zsh
 
 ln -f -s $SCRIPT_PATH/shconfig.sh $HOME/.shconfig.sh
 ln -f -s $SCRIPT_PATH/_display.sh $HOME/.display.sh
