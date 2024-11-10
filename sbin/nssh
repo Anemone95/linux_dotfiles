@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# 检查参数是否提供
+if [ -z "$1" ]; then
+    echo "Usage: nssh <hostname>"
+    exit 1
+fi
+
+HOSTNAME=$1
+
+# 临时变量来保存错误信息
+ERROR_MSG=$(ssh -o BatchMode=yes -o ConnectTimeout=5 "$HOSTNAME" exit 2>&1)
+
+# 检查是否出现Host key verification错误
+if echo "$ERROR_MSG" | grep -q "WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED"; then
+    echo "Host key verification failed for $HOSTNAME."
+    
+    # 从错误信息中提取 known_hosts 文件和有问题的主机信息
+    KNOWN_HOSTS_FILE=$(echo "$ERROR_MSG" | grep "Add correct host key in" | awk '{print $6}' | tr -d '\r')
+    HOST_KEY=$(echo "$ERROR_MSG" | grep "Host key for" | awk '{print $4}')
+    
+    # 删除 known_hosts 文件中对应的条目
+    if [ -n "$KNOWN_HOSTS_FILE" ] && [ -n "$HOST_KEY" ]; then
+        ESCAPED_HOST_KEY=$(echo "$HOST_KEY" | sed 's/[][]/\\&/g')
+        echo "Removing offending keys for $ESCAPED_HOST_KEY from $KNOWN_HOSTS_FILE..."
+        # 使用sed命令删除所有以$HOST_KEY开头的行
+        sed -i.bak "/^$ESCAPED_HOST_KEY/d" "$KNOWN_HOSTS_FILE"
+        echo "Offending keys removed. Retrying SSH connection..."
+        
+        # 再次尝试连接
+        ssh "$HOSTNAME"
+    else
+        echo "Could not determine known_hosts file or host key. Please check the error message."
+    fi
+else
+    # 如果没有Host key错误，则直接连接
+    ssh "$HOSTNAME"
+fi
