@@ -20,8 +20,10 @@ fi
 
 # Function to extract user, server and path from input
 extract_path_info() {
-    USER_SERVER=$(echo $1 | cut -d: -f1)
-    FOLDER=$(echo $1 | cut -d: -f2)
+    # USER_SERVER=$(echo $1 | cut -d: -f1)
+    # FOLDER=$(echo $1 | cut -d: -f2)
+    USER_SERVER=$(echo "$1" | awk -F':' '{print $1}')
+    FOLDER=$(echo "$1" | awk -F':' '{sub($1":", ""); print $0}')
     echo "$USER_SERVER $FOLDER"
 }
 

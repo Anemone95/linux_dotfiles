@@ -32,3 +32,5 @@
 	cmd = nvim -d $LOCAL $REMOTE
 [difftool]
 	prompt = false
+[credential]
+	helper = store
