@@ -10,9 +10,9 @@
     "tag": [
         "\\begin{figure}[htbp]",
         "\t\\centering",
-        "\t\\begin{lstlisting}[language=JavaScript,gobble=8]",
+        "   \\begin{minted}{js}",
         "%<Body%>",
-        "\t\\end{lstlisting}",
+        "\t\\end{minted}",
         "\t\\caption{%<Caption%>}",
         "\t\\label{code:%<Label%>}",
         "\\end{figure}"

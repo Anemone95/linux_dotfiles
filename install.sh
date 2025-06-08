@@ -88,6 +88,9 @@ ln -f -s $SCRIPT_PATH/_ideavimrc $HOME/.ideavimrc
 # tmux
 ln -f -s $SCRIPT_PATH/tmux.conf $HOME/.tmux.conf
 
+# aerospace
+ln -f $SCRIPT_PATH/aerospace.toml $HOME/.aerospace.toml
+
 cp $SCRIPT_PATH/localconfig.sh $HOME/.localconfig.sh
 
 rm -rf $HOME/.config
